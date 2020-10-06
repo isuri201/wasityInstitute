@@ -1,11 +1,9 @@
 package lk.wasityInstitute;
-
 import lk.wasityInstitute.asset.commonAsset.model.Enum.BloodGroup;
 import lk.wasityInstitute.asset.commonAsset.model.Enum.CivilStatus;
 import lk.wasityInstitute.asset.commonAsset.model.Enum.Gender;
 import lk.wasityInstitute.asset.commonAsset.model.Enum.Title;
 import lk.wasityInstitute.asset.employee.entity.Employee;
-import lk.wasityInstitute.asset.employee.entity.Enum.Designation;
 import lk.wasityInstitute.asset.employee.entity.Enum.EmployeeStatus;
 import lk.wasityInstitute.asset.employee.service.EmployeeService;
 import lk.wasityInstitute.asset.userManagement.entity.Role;
@@ -54,7 +52,7 @@ public class ApplicationCreateRestController {
         employee.setTitle(Title.DR);
         employee.setGender(Gender.MALE);
         employee.setBloodGroup(BloodGroup.AP);
-        employee.setDesignation(Designation.ED);
+//        employee.setDesignation(Designation.ED);
         employee.setCivilStatus(CivilStatus.UNMARRIED);
         employee.setEmployeeStatus(EmployeeStatus.WORKING);
         employee.setDateOfBirth(LocalDate.now().minusYears(18));
