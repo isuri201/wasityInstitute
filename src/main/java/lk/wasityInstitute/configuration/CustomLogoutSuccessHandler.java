@@ -1,6 +1,5 @@
 package lk.wasityInstitute.configuration;
 
-
 import lk.wasityInstitute.asset.userManagement.entity.Enum.UserSessionLogStatus;
 import lk.wasityInstitute.asset.userManagement.entity.User;
 import lk.wasityInstitute.asset.userManagement.entity.UserSessionLog;
