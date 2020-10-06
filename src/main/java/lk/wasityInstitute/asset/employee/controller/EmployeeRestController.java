@@ -1,5 +1,6 @@
 package lk.wasityInstitute.asset.employee.controller;
 
+
 import com.fasterxml.jackson.databind.ser.FilterProvider;
 import com.fasterxml.jackson.databind.ser.impl.SimpleBeanPropertyFilter;
 import com.fasterxml.jackson.databind.ser.impl.SimpleFilterProvider;
@@ -16,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/employee")
+@RequestMapping( "/employee" )
 public class EmployeeRestController {
     private final EmployeeService employeeService;
 
@@ -25,14 +26,14 @@ public class EmployeeRestController {
         this.employeeService = employeeService;
     }
 
-    @GetMapping(value = "/getEmployee")
-    public MappingJacksonValue getEmployeeByWorkingPlace(@RequestParam("designation") String designation,
-                                                         @RequestParam("id") Integer id) {
+    @GetMapping( value = "/getEmployee" )
+    public MappingJacksonValue getEmployeeByWorkingPlace(@RequestParam( "designation" ) String designation,
+                                                         @RequestParam( "id" ) Integer id) {
         Employee employee = new Employee();
         employee.setDesignation(Designation.valueOf(designation));
 
         //MappingJacksonValue
-        List<Employee> employees = employeeService.search(employee);
+        List< Employee > employees = employeeService.search(employee);
         //employeeService.findByWorkingPlace(workingPlaceService.findById(id));
 
         //Create new mapping jackson value and set it to which was need to filter
