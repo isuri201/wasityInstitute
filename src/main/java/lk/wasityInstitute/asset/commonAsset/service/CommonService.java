@@ -1,5 +1,6 @@
 package lk.wasityInstitute.asset.commonAsset.service;
 
+
 import lk.wasityInstitute.asset.commonAsset.model.Enum.BloodGroup;
 import lk.wasityInstitute.asset.commonAsset.model.Enum.CivilStatus;
 import lk.wasityInstitute.asset.commonAsset.model.Enum.Gender;

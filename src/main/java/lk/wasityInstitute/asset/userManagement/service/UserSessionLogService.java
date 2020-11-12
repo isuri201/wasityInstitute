@@ -1,5 +1,6 @@
 package lk.wasityInstitute.asset.userManagement.service;
 
+
 import lk.wasityInstitute.asset.userManagement.dao.UserSessionLogDao;
 import lk.wasityInstitute.asset.userManagement.entity.Enum.UserSessionLogStatus;
 import lk.wasityInstitute.asset.userManagement.entity.User;
@@ -13,7 +14,7 @@ import java.util.List;
 
 @Service
 @CacheConfig( cacheNames = {"userSessionLog"} )
-public class UserSessionLogService implements AbstractService<UserSessionLog, Integer > {
+public class UserSessionLogService implements AbstractService< UserSessionLog, Integer > {
     private final UserSessionLogDao userSessionLogDao;
 
     @Autowired

@@ -1,8 +1,14 @@
 package lk.wasityInstitute.asset.employee.controller;
 
+
+import lk.wasityInstitute.asset.commonAsset.model.Enum.BloodGroup;
+import lk.wasityInstitute.asset.commonAsset.model.Enum.CivilStatus;
+import lk.wasityInstitute.asset.commonAsset.model.Enum.Gender;
+import lk.wasityInstitute.asset.commonAsset.model.Enum.Title;
 import lk.wasityInstitute.asset.commonAsset.service.CommonService;
 import lk.wasityInstitute.asset.employee.entity.Employee;
 import lk.wasityInstitute.asset.employee.entity.EmployeeFiles;
+import lk.wasityInstitute.asset.employee.entity.Enum.Designation;
 import lk.wasityInstitute.asset.employee.entity.Enum.EmployeeStatus;
 import lk.wasityInstitute.asset.employee.service.EmployeeFilesService;
 import lk.wasityInstitute.asset.employee.service.EmployeeService;
@@ -18,6 +24,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
 import java.time.LocalDateTime;
@@ -31,13 +38,14 @@ public class EmployeeController {
     private final DateTimeAgeService dateTimeAgeService;
     private final CommonService commonService;
     private final UserService userService;
-
+//
     @Autowired
     public EmployeeController(EmployeeService employeeService, EmployeeFilesService employeeFilesService,
                               DateTimeAgeService dateTimeAgeService, CommonService commonService,
                               UserService userService) {
         this.employeeService = employeeService;
         this.employeeFilesService = employeeFilesService;
+
         this.dateTimeAgeService = dateTimeAgeService;
         this.commonService = commonService;
         this.userService = userService;
@@ -46,7 +54,13 @@ public class EmployeeController {
 
     // Common things for an employee add and update
     private String commonThings(Model model) {
-        commonService.commonEmployeeAndOffender(model);
+        model.addAttribute("title", Title.values());
+        model.addAttribute("gender", Gender.values());
+        model.addAttribute("designation", Designation.values());
+        model.addAttribute("bloodGroup", BloodGroup.values());
+        model.addAttribute("civilStatus", CivilStatus.values());
+        model.addAttribute("employeeStatus", EmployeeStatus.values());
+
         return "employee/addEmployee";
     }
 
@@ -66,7 +80,7 @@ public class EmployeeController {
         return "employee/employee";
     }
 
-    //Send on employee details
+    //Send on employee details as
     @GetMapping(value = "/{id}")
     public String employeeView(@PathVariable("id") Integer id, Model model) {
         Employee employee = employeeService.findById(id);
@@ -121,8 +135,8 @@ public class EmployeeController {
                     userService.persist(user);
                 }
             }
-            //save employee images file
-            for (MultipartFile file : employee.getFiles()) {
+            //save employee img file
+            for ( MultipartFile file : employee.getFiles()) {
                 if (file.getOriginalFilename() != null) {
                     EmployeeFiles employeeFiles = employeeFilesService.findByName(file.getOriginalFilename());
                     if (employeeFiles != null) {
@@ -144,7 +158,7 @@ public class EmployeeController {
 
         } catch (Exception e) {
             ObjectError error = new ObjectError("employee",
-                    "There is already in the system. <br>System message -->" + e.toString());
+                                                "There is already in the system. <br>System message -->" + e.toString());
             result.addError(error);
             model.addAttribute("addStatus", true);
             model.addAttribute("employee", employee);
@@ -176,6 +190,20 @@ public class EmployeeController {
         model.addAttribute("employee", new Employee());
         model.addAttribute("employeeDetailShow", false);
         return "employeeWorkingPlace/addEmployeeWorkingPlace";
+    }
+
+    @PostMapping("/save")
+    public String persist(@Valid @ModelAttribute Employee employee, BindingResult bindingResult, RedirectAttributes redirectAttributes, Model model) {
+        if (bindingResult.hasErrors()) {
+            model.addAttribute("employee", employee);
+
+            model.addAttribute("addStatus",true);
+            return "employee/addEmployee";
+        }
+
+        employeeService.persist(employee);
+        return "redirect:/employee";
+
     }
 
     //Send a searched employee to add working place
