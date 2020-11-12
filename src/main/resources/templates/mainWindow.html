@@ -9,25 +9,26 @@
 
 <div class="container-fluid">
     <div class="main-section">
-        <p class="welcome-Notes">Welcome To Complaint Management System of Department of
-                                 Excise</p>
+        <p class="welcome-Notes">Welcome To Student Management system of Wasity Institute
+                                 </p>
         <div class="col-12">
             <div class="row">
                 <div class="col-7">
                     <div class="form-row">
                         <div class="col-4">
                             <div class="card">
-                                <div class="card-body">
+                                <div class="card-body" style="background-color: olive">
                                     <div class="tile wide invoice">
                                         <div class="header">
                                             <div class="count">
                                                 <i class="fa fa-street-view" aria-hidden="true"></i>
                                             </div>
-                                            <div class="title">Employees</div>
+                                            <div class="title">Students</div>
                                         </div>
+
                                         <a href="/employee">
                                             <div class="body">
-                                                <div class="title">Manage Employees</div>
+                                                <div class="title">Manage students</div>
                                             </div>
                                         </a>
                                     </div>
@@ -36,19 +37,19 @@
                         </div>
                         <div class="col-4">
                             <div class="card">
-                                <div class="card-body">
+                                <div class="card-body" style="background-color: olive">
                                     <div class="tile wide resource">
                                         <div class="header">
                                             <div class="">
-                                                <div class="count"><i class="fa fa-shopping-cart"
+                                                <div class="count"><i class="fa fa-money-bill-wave"
                                                                       aria-hidden="true"></i>
                                                 </div>
-                                                <div class="title">Petitions</div>
+                                                <div class="title">Payments</div>
                                             </div>
                                         </div>
                                         <a href="/petition">
                                             <div class="body">
-                                                <div class="title">Inspect Petitions</div>
+                                                <div class="title">Manage Payments</div>
                                             </div>
                                         </a>
                                     </div>
@@ -57,19 +58,19 @@
                         </div>
                         <div class="col-4">
                             <div class="card">
-                                <div class="card-body">
+                                <div class="card-body" style="background-color: olive">
                                     <div class="tile wide quote">
                                         <div class="header">
                                             <div class="">
-                                                <div class="count"><i class="fa fa-newspaper" aria-hidden="true"></i>
+                                                <div class="count"><i class="fa fa-question" aria-hidden="true"></i>
                                                 </div>
-                                                <div class="title">Crime</div>
+                                                <div class="title">Enquiries</div>
                                             </div>
 
                                         </div>
                                         <a href="/crime">
                                             <div class="body">
-                                                <div class="title">Observe Crimes</div>
+                                                <div class="title">Manage Enquiries</div>
                                             </div>
                                         </a>
                                     </div>
@@ -80,20 +81,20 @@
                     <div class="form-row">
                         <div class="col-4">
                             <div class="card">
-                                <div class="card-body">
+                                <div class="card-body" style="background-color: olive">
                                     <div class="tile wide resource">
                                         <div class="header">
                                             <div class="">
-                                                <div class="count"><i class="fa fa-universal-access"
+                                                <div class="count"><i class="fa fa-registered"
                                                                       aria-hidden="true"></i>
                                                 </div>
-                                                <div class="title">Offenders</div>
+                                                <div class="title">Attendence</div>
                                             </div>
 
                                         </div>
                                         <a class href="/offender">
                                             <div class="body">
-                                                <div class="title">View Offenders</div>
+                                                <div class="title">Manage Attendence</div>
                                             </div>
                                         </a>
                                     </div>
@@ -102,7 +103,7 @@
                         </div>
                         <div class="col-4">
                             <div class="card">
-                                <div class="card-body">
+                                <div class="card-body" style="background-color: olive">
                                     <div class="tile wide quote">
                                         <div class="header">
                                             <div class="">
@@ -123,7 +124,7 @@
                         </div>
                         <div class="col-4">
                             <div class="card">
-                                <div class="card-body">
+                                <div class="card-body" style="background-color: olive">
                                     <div class="tile wide invoice">
                                         <div class="header">
                                             <div class="">
@@ -145,33 +146,12 @@
                     </div>
                 </div>
                 <!--To day petition list-->
-                <div class="col-5 bg-dark formBorder">
-                    <p class="welcome-Notes">To Day Petitions</p>
+                <div class="col-3 bg-dark formBorder">
+                    <p class="welcome-Notes">Calender</p>
                     <!--Petition Lists -->
                     <div class="container-fluid text-center" id="petitionListPresent">
-                        <table class="table table-hover table-striped" id="myTable">
-                            <thead>
-                            <tr>
-                                <th> Petition Number</th>
-                                <th> Petition Priority</th>
-                                <th> Working Place</th>
-                                <th> State</th>
-                                <th> Modify</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr id="petitionList">
-                                <th id="petitionNumber"></th>
-                                <th id="petitionPriority"></th>
-                                <th id="workingPlace"></th>
-                                <th id="petitionState"></th>
-                                <th>
-                                    <a id="petitionView" class="btn btn-success btn-sm"><i
-                                            class="fa fa-folder-open"></i>&nbsp;View</a>
-                                </th>
-                            </tr>
-                            </tbody>
-                        </table>
+                        <div class=""></div>
+
                     </div>
                     <div class="row" id="petitionListNotPresent">
                         <div class="col-sm-12">
@@ -179,11 +159,7 @@
                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
-                                <h3 class="text-center text-danger">
-                                    <strong>There is no petition upto know please add petition to the system
-                                            using add user button.
-                                    </strong>
-                                </h3>
+
                             </div>
                         </div>
                         <script>

@@ -1,110 +1,110 @@
-body{
-
-	background-image: url(../img/1.jpg);
-	-webkit-background-size:cover;
-	background-size: cover;
-	background-position:center center;
-	background-repeat: no-repeat;
+body {
+    font-family:  'Roboto',sans-serif ;
+    background-image: url('img/pexels-photo-351961.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+ 
 }
-.form-area{
-
-	float: left;
-	width: 400px;
-	height: 470px;
-	margin-top:50px;
-	margin-left:90px;
-	position: relative;
-	background:rgba(0,0,0,0.4);
-	text-align: center;
-	padding:40px;
-	-webkit-border-radius:70px 0 70px 0;
-	-moz-border-radius:70px 0 70px 0;
-	border-radius:70px 0 70px 0 ;
+.profile-image {
+    margin: 0 auto;
+    margin-top: 70px;
+   padding: 0;
+ 
 }
-
-.form-area{
-
-	margin-bottom: 1px;
-	color: #fff;
-
-
+.modal-content {
+    background-color:black;
+    opacity: .7;
+    padding : 0 10px;
+    border-radius:30px;
+    border-block-end-width: thick;
+    border-block-end-color: grey;
+   -webkit-border-radius:70px 0 70px 0;
+   -webkit-box-shadow: 0px 4px 47px 5px white;
+    -moz-box-shadow: 0px 4px 47px 5px white;
+    box-shadow: 0px 4px 47px 5px rgba(255, 252, 252, 0.75);
+   
 }
-
-.img-area{
-
-	width: 170px;
-	height: 170px;
-	border-radius:100%;
-	position: absolute;
-	margin-left: -40px;
-	margin-bottom: 15px;
-	top: -5%;
-	left: 45%;
+.user-img img {
+    height: 120px;
+    width: 120px;
+    margin-top: -60px;
+    margin-bottom: 20px;
 }
 
-.img-area img{
+#password {
+    margin-bottom: 2px;
+    margin-top:6px;
+    
+}
+.form-group input[type="text"],[type="password"] {
+    
+    background: transparent;
+    border-bottom: 1px solid wheat;
+    outline:none;
+    height:40px;
+    color: white;
+    font-size: 16px;
+    border-top:none;
+    border-left: none;
+    border-right: none;
+    margin-left: 30px;
+    
+   
+}
+.form-group::before{
+    font-family: 'Font Awesome\ 5 Free';
+    content:"";
+    position: absolute;
+    left: 50px;
+}
+.form-input button{
+    width:40%;
+    margin : 10px 0 25px;
 
-	width: 60%;
-	padding: 10px;
 
 }
-
-input{
-
-	border: none;
-	border-bottom: 1px solid #fff;
-	outline: none;
-	width: 100%;
-	height:35px;
-	margin-bottom: 15px;
-	background-color: transparent;
-	color: #fff;
-	font-size: 16px;
-	padding-left:5px;
-
+.btn-success{
+    background-color: darkblue;
+    font-size: 19px;
+    font-style: normal;
+font-weight: 900;
+    border-radius:10px ;
+    padding: 7px  14px;
+    border: 1px solid black ;
+}
+.btn-success:hover{
+    background-color:blue;
+    border: 1px solid black ;
+}
+p {
+    font-size: 40px;
+   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color:black;
+    font-style:italic;
+    text-align: center;
+    text-shadow: 2px 2px 5px red;
+}
+div{
+    color: rgb(245, 248, 250);
+    padding-top:px;
+    
 }
 
-.form-area p{
-	text-align: left;
-	color: #fff;
-	font-weight: bold;
-}
-
-#btnLogin{
-
-	display: inline-block;
-	height: 40px;
-	width: 300px;
-	padding: 3px;
-	line-height: 40px;
-	overflow: hidden;
-	position: relative;
-	text-align: center;
-	font-size: 16px;
-	background-color: #213e8b;
-	border-radius: 250px;
-	color: #fff;
-	margin-top: 20px;
-	cursor: pointer;
-	margin-left: 15px;
-	text-decoration: none;
-	-webkit-transition:top 0.6s;
-	-moz-transition:top 0.6s;
-	-o-transition:top 0.6s;
+.input-group-text{
+    height: 42px;
+    border-width: 5px;
+    border-radius: 5px;
+   
+    
 }
 
 
-#btnLogin:hover{
-background-color: lightseagreen;
-
+#btn1 {
+    width:50%;
+    margin : 10px 0 25px;
+    
 }
-
-.for-pass{
-
-	text-decoration: none;
-	display: block;
-	margin-top: 50px;
-	font-weight: bold;
-	font-size: 14px;
-	color: #fff;
+#btn1:hover{
+    background-color: rgb(86, 204, 7);
 }
