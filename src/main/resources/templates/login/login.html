@@ -1,22 +1,25 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="~{fragments/header :: headerFragment}">
+
+
     <meta charset="UTF-8">
     <title>Thymeleaf Springboot </title>
 
 </head>
 
-<body id="loginBack">
-<div class="container-fluid" id="loginPage">
 
+<body id="loginBack" >
+<div class="container-fluid" id="loginPage">
+    <img src="../img/logos/logo.jpeg" style="width:50px;height:50px;" id="logo" class="alert-success">
     <p style='text-align: left;font-style: italic;font-size: small;color: white;'>Wasity Institute<br>Student Management
         System</p>
 
-    <p> LOGIN</p>
+    <p > LOGIN</p>
     <hr>
     <div class="modal-dialog text-center">
         <div class="col-sm-9 profile-image ">
-            <div class="modal-content ">
+            <div class="modal-content" id="mod">
 
                 <div class="col-12 user-img">
                     <img th:src="@{img/user.png}"></div>
