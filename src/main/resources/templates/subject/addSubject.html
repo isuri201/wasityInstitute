@@ -9,65 +9,71 @@
 <!--Nav bar is included-->
 <nav data-th-replace="~{fragments/navBar :: navBarFragment}"></nav>
 
-<div class="row bg-secondary">
+<div class="row"   id="hd">
     <div class="col-4">
     </div>
     <div class="col-4">
-        <h1>Subject Management - Add New Subject</h1>
+        <h1 id="fh1">Subject Management <br> Add New Subject</h1>
     </div>
     <div class="col-4">
-        <a href="/subject">
-            <button class="btn btn-primary">All Subject</button>
-        </a>
+
     </div>
 </div>
 <div class="container-fluid">
-    <form action="/subject/save" data-th-object="${subject}" method="post">
+    <a href="/subject">
+        <button class="btn btn-primary mt-1 "  id="bta">All Subject</button>
+    </a>
+
+    <form action="/subject/save" data-th-object="${subject}" method="post" style="text-align: center">
         <!--subject id-->
-        <div class="form-row text-right" data-th-if="${addStatus==false}">
-            <div class="col-md-4">
-                <label data-th-for="${id}">Id</label>
+        <div class="form-row text-right " data-th-if="${addStatus==false}" >
+
+            <div class="col-md-4 " >
+                <label data-th-for="${id}" >ID</label>
             </div>
             <div class="col-md-8">
                 <label>
-                    <input class="form-control" data-th-field="*{id}" readonly type="text">
+                    <input class="form-control" data-th-field="*{id}" readonly type="text" >
                 </label>
             </div>
         </div>
         <!-- Name-->
-        <div class="form-row text-right">
-            <div class="col-md-4">
-                <label class="control-label" data-th-for="${name}">Name :</label>
+        <div class="form-row text-right clearfix">
+            <div class="col-md-4  col-sm-6 float-sm-left">
+                <label class="control-label" data-th-for="${name}"><b>Name :</b></label>
             </div>
-            <div class="col-md-8">
-                <label>
+            <!--<div class="col-md-8">-->
+                <label class="col-md-4  col-sm-6">
                     <input class="form-control" data-th-field="*{name}" required tabindex="4" type="text"/>
                 </label>
                 <span data-th-errors="*{name}"
                       data-th-if="${#fields.hasErrors('name')}">Error Name</span>
-            </div>
+            <!--</div>-->
         </div>
         <!--Code-->
-        <div class="form-row text-right">
-            <div class="col-md-4">
-                <label class="control-label" data-th-for="${code}">code :</label>
+        <div class="form-row text-right clearfix">
+            <div class=" col-md-4 col-sm-6 float-sm-left">
+                <label class="control-label" data-th-for="${code}"><b>code :</b></label>
             </div>
-            <div class="col-md-8">
-                <input class="form-control" data-th-field="*{code}" required tabindex="4" type="text"/>
+            <!--<div class="col-md-8">-->
+                <label class="col-md-4  col-sm-6"><input class="form-control" data-th-field="*{code}" required tabindex="4" type="text"/></label>
                 <span data-th-errors="*{code}"
                       data-th-if="${#fields.hasErrors('code')}">Error Name</span>
-            </div>
+            <!--</div>-->
         </div>
 
         <!--Button-->
-        <div class="form-batch col-md-12 col-sm-12 text-center flex-column ">
-            <button class="btn btn-success" tabindex="21" type="submit">
+        <div class="form-batch col-md-12 col-sm-10 text-center flex-column">
+            <button class="btn btn-success mt-5 mb-lg-4  " tabindex="21" type="submit" id="bts" >
                 <i class="fa fa-save " style="font-size: 20px"></i>&nbsp; &nbsp;<span
-                    data-th-text="${addStatus==true?'Save': 'Update'}"
+                    data-th-text="${addStatus==true?'save': 'Update'}"
                     id="submit"></span>
             </button>
+           <button class="btn btn-danger mt-5 ml-lg-5 mb-lg-4 " type="reset" id="btr">reset</button>
         </div>
+
     </form>
+
 </div>
 
 <!--footer is included-->
