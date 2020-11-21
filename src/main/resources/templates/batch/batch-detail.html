@@ -9,57 +9,62 @@
 <!--Nav bar is included-->
 <nav data-th-replace="~{fragments/navBar :: navBarFragment}"></nav>
 
-<div class="row bg-secondary">
+<div class="row " id="hd">
     <div class="col-4">
-        <a href="/batch/new">
-            <button class="btn btn-info">New Batch</button>
-        </a>
+
     </div>
     <div class="col-4">
-        <h1>Batch Management - Batch Detail</h1>
+        <h1 id="fh1">Batch Management <br> Batch Details</h1>
     </div>
     <div class="col-4">
-        <a href="/batch">
-            <button class="btn btn-primary">All Batch</button>
-        </a>
+
     </div>
 </div>
 <!--Batch detail-->
 <div class="container-fluid" data-th-fragment="batchDetail">
+    <div class="row"><div class="col-md-8"></div>
+        <div class="col-sm-2">
+            <a href="/subject/new">
+                <button class="btn btn-info mt-1 ml-5" id="bta">New Subject</button>
+            </a></div>
+        <div class="col-sm-2">
+            <a href="/subject">
+                <button class="btn btn-primary mt-1" id="bta">All Subject</button>
+            </a></div></div>
     <!--Class Referance-->
-    <div class="form-row text-right">
+    <div class="form-row text-right mt-4">
         <div class="col-md-4">
-            <label class="control-label" data-th-for="${classReferance}">Class Referance :</label>
+            <label class="control-label mt-1" data-th-for="${classReferance}"><b>Class Referance :</b></label>
         </div>
-        <div class="col-md-8">
-            <p class="form-control" data-th-text="${batchDetail.classReferance}"></p>
+        <div class="col-md-4">
+            <p class="form-control" data-th-text="${batchDetail.classReferance}" style="text-shadow: none;font-family: 'Cambria Math';font-style: normal"></p>
         </div>
     </div>
     <!--Grade-->
     <div class="form-row text-right">
         <div class="col-md-4">
-            <label class="control-label" data-th-for="${grade}">Grade :</label>
+            <label class="control-label mt-1" data-th-for="${grade}"><b>Grade :</b></label>
         </div>
-        <div class="col-md-8">
-            <p class="form-control" data-th-text="${batchDetail.grade}"></p>
+        <div class="col-md-4">
+            <p class="form-control" data-th-text="${batchDetail.grade}" style="text-shadow: none;font-family: 'Cambria Math';font-style: normal"></p>
         </div>
     </div>
     <!--Year-->
     <div class="form-row text-right">
         <div class="col-md-4">
-            <label class="control-label" data-th-for="${year}">year :</label>
+            <label class="control-label mt-1" data-th-for="${year}"><b>year :</b></label>
         </div>
-        <div class="col-md-8">
-            <p class="form-control" data-th-text="${batchDetail.year}"></p>
+        <div class="col-md-4">
+            <p class="form-control" data-th-text="${batchDetail.year}"  style="text-shadow: none;font-family: 'Cambria Math';font-style: normal"></p>
         </div>
     </div>
     <!--Teacher-->
     <div class="form-row text-right">
         <div class="col-md-4">
-            <label class="control-label" data-th-for="${teacherName}">Teacher Name :</label>
+            <label class="control-label" mt-1 data-th-for="${teacherName}"><b>Teacher Name :</b></label>
         </div>
-        <div class="col-md-8">
-            <p class="form-control" data-th-text="${batchDetail.teacherName}"></p>
+        <div class="col-md-4">
+            <p class="form-control" data-th-text="${batchDetail.teacherName}"  style="text-shadow: none;font-family: 'Cambria Math';font-style: normal"></p>
         </div>
     </div>
 
@@ -68,7 +73,7 @@
 <!--Button-->
 <div class="form-batch col-md-12 col-sm-12 text-center flex-column ">
     <a href="/batch">
-        <button class="btn btn-success" tabindex="21" type="submit">
+        <button class="btn btn-success" tabindex="21" type="submit" id="bts">
             Back
         </button>
     </a>
