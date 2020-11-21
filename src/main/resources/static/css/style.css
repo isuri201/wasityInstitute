@@ -107,3 +107,7 @@ div{
 #btn1:hover{
     background-color: rgb(86, 204, 7);
 }
+#myTable{
+    border-radius: 20px;
+
+}
