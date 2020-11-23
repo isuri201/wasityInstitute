@@ -9,65 +9,75 @@
 <!--Nav bar is included-->
 <nav data-th-replace="~{fragments/navBar :: navBarFragment}"></nav>
 
-<div class="row bg-secondary">
+<div class="row " id="hd">
     <div class="col-4">
-        <a href="/hall/new">
-            <button class="btn btn-info">New Hall</button>
-        </a>
+
     </div>
     <div class="col-4">
-        <h1>Hall Management - Hall Detail</h1>
+        <h1 id="fh1">Hall Management <br> Hall Detail</h1>
     </div>
     <div class="col-4">
-        <a href="/hall">
-            <button class="btn btn-primary">All Hall</button>
-        </a>
+
     </div>
 </div>
 <!--Hall detail-->
 <div class="container-fluid" data-th-fragment="hallDetail">
+    <div class="row"><div class="col-md-8"></div>
+        <div class="col-sm-2">
+            <a href="/hall/new">
+                <button class="btn btn-info mt-1 ml-5" id="bta">New Hall</button>
+            </a></div>
+        <div class="col-sm-2">
+            <a href="/hall">
+                <button class="btn btn-primary mt-1" id="bta">All Halls</button>
+            </a></div></div>
     <!--hall id-->
-    <div class="form-batch">
-        <label data-th-for="${id}">Id</label>
-        <p class="form-control" data-th-text="${hallDetail.id}"></p>
+    <div class="form-row mt-3">
+        <div class="col-md-4 text-right ">
+       <label class="control-label" data-th-for="${id}">Id :</label></div>
+
+     <div class="col-md-4" >  <p class="form-control" data-th-text="${hallDetail.id}" style="text-shadow: none;font-family: 'Cambria Math';font-style: normal"></p>
+     </div>
     </div>
     <!--number-->
-    <div class="form-batch">
-        <label data-th-for="${number}"></label>
-        <p class="form-control" data-th-text="${hallDetail.number}"></p>
+    <div class="form-row">
+        <div class="col-md-4 text-right">
+        <label  class="control-label" data-th-for="${number}">Hall number :</label></div>
+    <div class="col-md-4" >  <p class="form-control" data-th-text="${hallDetail.number}" style="text-shadow: none;font-family: 'Cambria Math';font-style: normal"></p>
+    </div>
     </div>
     <!--Condition-->
     <div class="form-row text-right">
         <div class="col-md-4">
-            <label class="control-label" data-th-for="${hallCondition}">Hall Condition:</label>
+            <label class="control-label" data-th-for="${hallCondition}">Hall Condition :</label>
         </div>
-        <div class="col-md-8">
-            <p class="form-control" data-th-text="${hallDetail.hallCondition}"></p>
+        <div class="col-md-4">
+            <p class="form-control" data-th-text="${hallDetail.hallCondition}" style="text-shadow: none;font-family: 'Cambria Math';font-style: normal"></p>
         </div>
     </div>
     <!--Count-->
     <div class="form-row text-right">
         <div class="col-md-4">
-            <label class="control-label" data-th-for="${seatCount}">Seating count:</label>
+            <label class="control-label" data-th-for="${seatCount}">Seating count :</label>
         </div>
-        <div class="col-md-8">
-            <p class="form-control" data-th-text="${hallDetail.seatCount}"></p>
+        <div class="col-md-4">
+            <p class="form-control" data-th-text="${hallDetail.seatCount}" style="text-shadow: none;font-family: 'Cambria Math';font-style: normal"></p>
         </div>
     </div>
     <!--location-->
     <div class="form-row text-right">
         <div class="col-md-4">
-            <label class="control-label" data-th-for="${HallLocation}">Hall location:</label>
+            <label class="control-label" data-th-for="${HallLocation}">Hall location :</label>
         </div>
-        <div class="col-md-8">
-            <p class="form-control" data-th-text="${hallDetail.HallLocation}"></p>
+        <div class="col-md-4">
+            <p class="form-control" data-th-text="${hallDetail.HallLocation}" style="text-shadow: none;font-family: 'Cambria Math';font-style: normal"></p>
         </div>
     </div>
 </div>
 <!--Button-->
 <div class="form-batch col-md-12 col-sm-12 text-center flex-column ">
     <a href="/hall">
-        <button class="btn btn-success" tabindex="21" type="submit">
+        <button class="btn btn-success" tabindex="21" type="submit" id="bts">
             Back
         </button>
     </a>
