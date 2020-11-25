@@ -1,0 +1,57 @@
+#fh1{
+    font-family: 'Cambria Math';
+    color: #111111;
+    text-shadow: 2px 2px 5px red;
+    text-align: center;
+}
+#bta{
+   background-color: rgba(0,7,61,0.99);
+    border-radius: 12px;
+    box-shadow: 0 8px 8px 0 rgba(47, 10, 10, 0.2), 0 6px 10px 0 rgba(52, 26, 26, 0.95);
+    width: 150px;
+}
+#bta:hover{
+    background-color: rgba(9,61,61,0.99);
+}
+#bta:active{
+    transform: translateY(4px);
+}
+#lab{
+    color: #111111;
+}
+#d {
+    color: #111111;
+    text-shadow: none;
+}
+label{
+    color: #111111;
+
+}
+#bts {
+    background-color:green;
+    border-radius: 12px;
+    width: 150px;
+    box-shadow: 0 8px 8px 0 rgba(47, 10, 10, 0.2), 0 6px 10px 0 rgba(52, 26, 26, 0.95);
+}
+#btr {
+    background-color: rgba(186, 6, 8, 0.99);
+    border-radius: 12px;
+    width: 150px;
+    box-shadow: 0 8px 8px 0 rgba(47, 10, 10, 0.2), 0 6px 10px 0 rgba(52, 26, 26, 0.95);
+}
+#bts:hover{
+
+    background-color: rgba(7,104,26,0.99);
+}
+#btr:hover{
+    background-color: rgba(164,51,23,0.99);
+}
+#bts:active{
+    transform: translateY(4px);
+}
+#btr:active{
+    transform: translateY(4px);
+}
+#hd{
+    background-color: #fab443;
+}

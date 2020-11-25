@@ -1,30 +1,28 @@
 plugins {
-	id 'org.springframework.boot' version '2.2.6.RELEASE'
+	id 'org.springframework.boot' version '2.2.4.RELEASE'
 	id 'io.spring.dependency-management' version '1.0.9.RELEASE'
 	id 'java'
 }
 
-group = 'lk.wasityInstitute'
-version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '11'
 
 configurations {
 	developmentOnly
 	runtimeClasspath {
 		extendsFrom developmentOnly
 	}
-	compileOnly {
-		extendsFrom annotationProcessor
-	}
 }
 
 repositories {
-	jcenter()
-	maven {
-		url "https://maven.springframework.org/release"
-	}
-	maven {
-		url "https://maven.restlet.com"
+	mavenCentral()
+}
+
+springBoot {
+	buildInfo {
+		properties {
+			group = 'lk.Wasityinstitute'
+			version = '0.0.1-SNAPSHOT'
+			sourceCompatibility = '11'
+		}
 	}
 }
 
@@ -42,7 +40,7 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-cache'
 //================= Following jar is need to check url util - https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 =================//
 	compile group: 'org.apache.commons', name: 'commons-lang3'
-//================= Following jar is need to generate microsoft office file - https://mvnrepository.com/artifact/org.apache.poi/poi=================//
+//================= Following jar is need to generate excel file - https://mvnrepository.com/artifact/org.apache.poi/poi=================//
 	compile group: 'org.apache.poi', name: 'poi', version: '3.8'
 	/*pdf generate related*/
 //================= Following jar is need to generate pdf file -https://mvnrepository.com/artifact/com.itextpdf/itextpdf =================//
@@ -75,18 +73,20 @@ dependencies {
 // https://mvnrepository.com/artifact/org.aspectj/aspectjweaver
 	compile group: 'org.aspectj', name: 'aspectjweaver', version: '1.9.5'
 
-
-
 	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	runtimeOnly 'mysql:mysql-connector-java'
-	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
-	testImplementation 'org.springframework.security:spring-security-test'
 }
 
 test {
 	useJUnitPlatform()
+}
+
+/*To boot run*/
+bootRun {
+	sourceResources sourceSets.main
 }

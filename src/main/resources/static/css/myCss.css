@@ -8,7 +8,7 @@
 }
 /* for login form - start*/
 #loginBack {
-    background-image: url('../img/12.jpg');
+    background-image: url('../img/loginBackground.jpg');
     margin: 0;
     padding: 0;
     background-size: cover;
@@ -96,4 +96,11 @@
     border-radius: 5px;
 
 }
+.user-img img {
+    height: 120px;
+    width: 120px;
+    margin-top: -60px;
+    margin-bottom: 20px;
+}
+
 /* for login form - end*/
