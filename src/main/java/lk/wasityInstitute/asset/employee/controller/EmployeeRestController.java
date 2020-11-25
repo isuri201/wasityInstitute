@@ -4,6 +4,8 @@ import com.fasterxml.jackson.databind.ser.FilterProvider;
 import com.fasterxml.jackson.databind.ser.impl.SimpleBeanPropertyFilter;
 import com.fasterxml.jackson.databind.ser.impl.SimpleFilterProvider;
 
+import lk.wasityInstitute.asset.employee.entity.Employee;
+import lk.wasityInstitute.asset.employee.entity.enums.Designation;
 import lk.wasityInstitute.asset.employee.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.converter.json.MappingJacksonValue;

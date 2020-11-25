@@ -17,7 +17,7 @@ import javax.validation.Valid;
 
 @Controller
 @RequestMapping( "/student" )
-public class StudentController implements AbstractController< Student, Integer > {
+public class StudentController {
     private final StudentService studentService;
 
     private final SchoolService schoolService;

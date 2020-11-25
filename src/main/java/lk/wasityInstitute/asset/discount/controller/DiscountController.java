@@ -14,7 +14,7 @@ import javax.validation.Valid;
 
 @Controller
 @RequestMapping("/discount")
-public class DiscountController implements AbstractController< Discount, Integer> {
+public class DiscountController {
     private final DiscountService discountService;
 
     public DiscountController(DiscountService discountService) {

@@ -16,7 +16,7 @@ import javax.validation.Valid;
 
 @Controller
 @RequestMapping("/teacher")
-public class TeacherController implements AbstractController<Teacher, Integer> {
+public class TeacherController  {
     private final TeacherService teacherService;
     private final SubjectService subjectService;
     private final BatchService batchService;

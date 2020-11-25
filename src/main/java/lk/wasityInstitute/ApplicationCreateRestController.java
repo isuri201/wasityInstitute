@@ -1,9 +1,11 @@
 package lk.wasityInstitute;
-import lk.wasityInstitute.asset.commonAsset.model.Enum.BloodGroup;
+
 import lk.wasityInstitute.asset.commonAsset.model.Enum.CivilStatus;
 import lk.wasityInstitute.asset.commonAsset.model.Enum.Gender;
 import lk.wasityInstitute.asset.commonAsset.model.Enum.Title;
-import lk.wasityInstitute.asset.employee.entity.Employee;import lk.wasityInstitute.asset.employee.service.EmployeeService;
+import lk.wasityInstitute.asset.employee.entity.Employee;
+import lk.wasityInstitute.asset.employee.entity.enums.EmployeeStatus;
+import lk.wasityInstitute.asset.employee.service.EmployeeService;
 import lk.wasityInstitute.asset.userManagement.entity.Role;
 import lk.wasityInstitute.asset.userManagement.entity.User;
 import lk.wasityInstitute.asset.userManagement.service.RoleService;
@@ -17,62 +19,60 @@ import java.util.stream.Collectors;
 
 @RestController
 public class ApplicationCreateRestController {
-    private final RoleService roleService;
-    private final UserService userService;
-    private final EmployeeService employeeService;
+  private final RoleService roleService;
+  private final UserService userService;
+  private final EmployeeService employeeService;
 
 
-    @Autowired
-    public ApplicationCreateRestController(RoleService roleService, UserService userService,
-                                           EmployeeService employeeService) {
-        this.roleService = roleService;
-        this.userService = userService;
-        this.employeeService = employeeService;
+  @Autowired
+  public ApplicationCreateRestController(RoleService roleService, UserService userService,
+                                         EmployeeService employeeService) {
+    this.roleService = roleService;
+    this.userService = userService;
+    this.employeeService = employeeService;
+  }
+
+  @GetMapping( "/select/user" )
+  public String saveUser() {
+    //roles list start
+    String[] roles = {"ADMIN"};
+    for ( String s : roles ) {
+      Role role = new Role();
+      role.setRoleName(s);
+      roleService.persist(role);
     }
-
-    @GetMapping( "/select/user" )
-    public String saveUser() {
-        //roles list start
-        String[] roles = {"ADMIN"};
-        for ( String s : roles ) {
-            Role role = new Role();
-            role.setRoleName(s);
-            roleService.persist(role);
-        }
 
 //Employee
-        Employee employee = new Employee();
-        employee.setPayRoleNumber("11111111");
-        employee.setName("Admin User");
-        employee.setCallingName("Admin");
-        employee.setName("908670000V");
-        employee.setMobileOne("0750000000");
-        employee.setTitle(Title.DR);
-        employee.setGender(Gender.MALE);
-        employee.setBloodGroup(BloodGroup.AP);
+    Employee employee = new Employee();
+    employee.setName("Admin User");
+    employee.setCallingName("Admin");
+    employee.setName("908670000V");
+    employee.setMobileOne("0750000000");
+    employee.setTitle(Title.DR);
+    employee.setGender(Gender.MALE);
 //        employee.setDesignation(Designation.ED);
-        employee.setCivilStatus(CivilStatus.UNMARRIED);
-        employee.setEmployeeStatus(EmployeeStatus.WORKING);
-        employee.setDateOfBirth(LocalDate.now().minusYears(18));
-        employee.setDateOfAssignment(LocalDate.now());
-        Employee employeeDb = employeeService.persist(employee);
+    employee.setCivilStatus(CivilStatus.UNMARRIED);
+    employee.setEmployeeStatus(EmployeeStatus.WORKING);
+    employee.setDateOfBirth(LocalDate.now().minusYears(18));
+    employee.setDateOfAssignment(LocalDate.now());
+    Employee employeeDb = employeeService.persist(employee);
 
 
-        //admin user one
-        User user = new User();
-        user.setEmployee(employeeDb);
-        user.setUsername("admin");
-        user.setPassword("admin");
-        String message = "Username:- " + user.getUsername() + "\n Password:- " + user.getPassword();
-        user.setEnabled(true);
-        user.setRoles(roleService.findAll()
-                              .stream()
-                              .filter(role -> role.getRoleName().equals("ADMIN"))
-                              .collect(Collectors.toList()));
-        userService.persist(user);
+    //admin user one
+    User user = new User();
+    user.setEmployee(employeeDb);
+    user.setUsername("admin");
+    user.setPassword("admin");
+    String message = "Username:- " + user.getUsername() + "\n Password:- " + user.getPassword();
+    user.setEnabled(true);
+    user.setRoles(roleService.findAll()
+                      .stream()
+                      .filter(role -> role.getRoleName().equals("ADMIN"))
+                      .collect(Collectors.toList()));
+    userService.persist(user);
 
-        return message;
-    }
+    return message;
+  }
 
 
 }

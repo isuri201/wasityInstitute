@@ -14,7 +14,7 @@ import javax.validation.Valid;
 
 @Controller
 @RequestMapping("/subject")
-public class SubjectController implements AbstractController< Subject, Integer> {
+public class SubjectController{
     private final SubjectService subjectService;
 
     public SubjectController(SubjectService subjectService) {
