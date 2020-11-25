@@ -1,10 +1,11 @@
 package lk.wasityInstitute.util.interfaces;
 
+
 import java.util.List;
 
-public interface  AbstractService<E, I> {
+public interface AbstractService<E, I> {
 
-    List<E> findAll();
+   Object findAll();
 
     E findById(I id);
 

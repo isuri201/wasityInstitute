@@ -1,8 +1,8 @@
 package lk.wasityInstitute.asset.userManagement.controller;
 
 import lk.wasityInstitute.asset.employee.entity.Employee;
-import lk.wasityInstitute.asset.employee.entity.Enum.Designation;
-import lk.wasityInstitute.asset.employee.entity.Enum.EmployeeStatus;
+import lk.wasityInstitute.asset.employee.entity.enums.Designation;
+import lk.wasityInstitute.asset.employee.entity.enums.EmployeeStatus;
 import lk.wasityInstitute.asset.employee.service.EmployeeService;
 import lk.wasityInstitute.asset.userManagement.entity.User;
 import lk.wasityInstitute.asset.userManagement.service.RoleService;
