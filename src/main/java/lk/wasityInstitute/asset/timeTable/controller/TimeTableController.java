@@ -14,7 +14,7 @@ import javax.validation.Valid;
 
 @Controller
 @RequestMapping("/timeTable")
-public class TimeTableController implements AbstractController< TimeTable, Integer> {
+public class TimeTableController  {
     private final TimeTableService timeTableService;
 
     public TimeTableController(TimeTableService timeTableService) {

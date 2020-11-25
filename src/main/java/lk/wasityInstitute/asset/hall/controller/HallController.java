@@ -16,7 +16,7 @@ import javax.validation.Valid;
 
 @Controller
 @RequestMapping("/hall")
-public class HallController implements AbstractController< Hall, Integer> {
+public class HallController {
     private final HallService hallService;
 
     public HallController(HallService hallService) {

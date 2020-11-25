@@ -14,7 +14,7 @@ import javax.validation.Valid;
 
 @Controller
 @RequestMapping("/payment")
-public class PaymentController implements AbstractController< Payment, Integer> {
+public class PaymentController {
     private final PaymentService paymentService;
 
     public PaymentController(PaymentService paymentService) {
