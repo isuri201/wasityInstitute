@@ -15,7 +15,7 @@ import javax.validation.Valid;
 
 @Controller
 @RequestMapping("/batch")
-public class BatchController implements AbstractController< Batch, Integer> {
+public class BatchController{
     private final BatchService batchService;
 
     public BatchController(BatchService batchService) {
