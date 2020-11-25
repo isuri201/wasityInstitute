@@ -72,6 +72,27 @@
                 </label>
             </div>
 
+            <!--hall condition-->
+            <div class="form-row text-right   ">
+                <div class="col-md-4 col-sm-6">
+                    <label class="control-label  mt-1" data-th-for="${hallCondition}"><b>Hall Name :</b></label>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="custom-control custom-checkbox custom-control-inline "
+                         data-th-each="hallCondition,index : ${hallConditions}">
+                        <input class="custom-control-input gender" required
+                               data-th-name="${'hallCondition'}"
+                               data-th-value="${hallCondition}"
+                               data-th-id="${index.index}+${hallCondition}" type="radio"
+                               data-th-checked="${hallCondition==hallCondition}"/>
+                        <label class="custom-control-label"
+                               data-th-for="${index.index}+${hallCondition}"
+                               data-th-text="${hallCondition.hallCondition}"> radio
+                        </label>
+                    </div>
+                </div>
+            </div>
+
 
 
 <!--subject-->
