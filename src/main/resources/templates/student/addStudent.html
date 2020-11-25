@@ -77,11 +77,18 @@
                 <label class="control-label mt-1" for="gender"><b>Gender : </b></label>
             </div>
             <label class="col-md-8">
-                <select class="form-control" data-th-field="*{gender}" id="gender" required tabindex="7">
-                    <option value="">Please select</option>
-                    <option value="Male">Male</option>
-                    <option value="Female">Female</option>
-                </select>
+                <div class="custom-control custom-checkbox custom-control-inline "
+                     data-th-each="genders,index : ${gender}">
+                    <input class="custom-control-input gender" required
+                           data-th-name="${'gender'}"
+                           data-th-value="${genders}"
+                           data-th-id="${index.index}+${genders}" type="radio"
+                           data-th-checked="${genders==gender}"/>
+                    <label class="custom-control-label"
+                           data-th-for="${index.index}+${genders}"
+                           data-th-text="${genders.gender}"> radio
+                    </label>
+                </div>
             </label>
         </div>
         <!--Date of birth-->
@@ -104,9 +111,14 @@
                 <label class="control-label mt-1" data-th-for="${school}"><b>School :</b></label>
             </div>
             <label class="col-md-8">
-                <input class="form-control" data-th-field="*{school}" required tabindex="4" type="text"/>
-                <span data-th-errors="*{school}"
-                      data-th-if="${#fields.hasErrors('school')}">Error Name</span>
+                <select class="form-control" data-th-field="*{school}" required tabindex="4" type="text"/>
+                <option value="">Please select</option>
+                <option data-th-each="school : ${schools}"
+                        data-th-text="${school.name}"
+                        data-th-value="${school}">
+                    Please select
+                </option>
+            </label>
             </label>
         </div>
         <!--Address-->
