@@ -3,6 +3,7 @@ package lk.wasityInstitute.asset.hall.controller;
 
 
 import lk.wasityInstitute.asset.hall.entity.Hall;
+import lk.wasityInstitute.asset.hall.entity.enums.HallCondition;
 import lk.wasityInstitute.asset.hall.service.HallService;
 import lk.wasityInstitute.util.interfaces.AbstractController;
 import org.springframework.stereotype.Controller;
@@ -31,7 +32,7 @@ public class HallController implements AbstractController< Hall, Integer> {
     @GetMapping("/new")
     public String form(Model model) {
         model.addAttribute("hall", new Hall());
-
+model.addAttribute("hallConditions", HallCondition.values());
         model.addAttribute("addStatus",true);
         return "hall/addHall";
     }
@@ -45,7 +46,7 @@ public class HallController implements AbstractController< Hall, Integer> {
     @GetMapping("/edit/{id}")
     public String edit(@PathVariable Integer id, Model model) {
         model.addAttribute("hall", hallService.findById(id));
-
+        model.addAttribute("hallConditions", HallCondition.values());
         model.addAttribute("addStatus",false);
         return "hall/addHall";
     }
@@ -54,7 +55,7 @@ public class HallController implements AbstractController< Hall, Integer> {
     public String persist(@Valid @ModelAttribute Hall hall, BindingResult bindingResult, RedirectAttributes redirectAttributes, Model model) {
         if (bindingResult.hasErrors()) {
             model.addAttribute("hall", hall);
-
+            model.addAttribute("hallConditions", HallCondition.values());
             model.addAttribute("addStatus",true);
             return "hall/addHall";
         }
