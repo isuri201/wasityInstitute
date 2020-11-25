@@ -1,7 +1,6 @@
 package lk.wasityInstitute.asset.employee.entity;
 
 
-
 import lk.wasityInstitute.util.audit.AuditEntity;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

@@ -1,6 +1,7 @@
 package lk.wasityInstitute.asset.student.controller;
 
 
+import lk.wasityInstitute.asset.commonAsset.model.Enum.Gender;
 import lk.wasityInstitute.asset.school.service.SchoolService;
 import lk.wasityInstitute.asset.student.entity.Student;
 import lk.wasityInstitute.asset.student.service.StudentService;
@@ -39,6 +40,7 @@ public class StudentController implements AbstractController< Student, Integer >
     public String form(Model model) {
         model.addAttribute("student", new Student());
         model.addAttribute("schools", schoolService.findAll());
+        model.addAttribute("gender", Gender.values());
         model.addAttribute("addStatus", true);
         return "student/addStudent";
     }
@@ -53,6 +55,7 @@ public class StudentController implements AbstractController< Student, Integer >
     public String edit(@PathVariable Integer id, Model model) {
         model.addAttribute("student", studentService.findById(id));
         model.addAttribute("schools", schoolService.findAll());
+        model.addAttribute("gender", Gender.values());
         model.addAttribute("addStatus", false);
         return "student/addStudent";
     }
@@ -63,6 +66,7 @@ public class StudentController implements AbstractController< Student, Integer >
         if ( bindingResult.hasErrors() ) {
             model.addAttribute("student", student);
             model.addAttribute("schools", schoolService.findAll());
+            model.addAttribute("gender", Gender.values());
             model.addAttribute("addStatus", true);
             return "student/addStudent";
         }
