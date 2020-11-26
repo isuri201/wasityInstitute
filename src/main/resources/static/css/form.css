@@ -1,3 +1,14 @@
+body{
+
+}
+#frm{
+    font-family: "Cambria Math";
+
+}
+
+
+
+
 #fh1{
     font-family: 'Cambria Math';
     color: #111111;
@@ -16,16 +27,11 @@
 #bta:active{
     transform: translateY(4px);
 }
-#lab{
-    color: #111111;
-}
-#d {
-    color: #111111;
-    text-shadow: none;
-}
-label{
-    color: #111111;
 
+
+label{
+
+    color: #111111;
 }
 #bts {
     background-color:green;
@@ -54,4 +60,7 @@ label{
 }
 #hd{
     background-color: #fab443;
+}
+#myTable{
+    border-radius: 30px;
 }

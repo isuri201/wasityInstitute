@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <title>Wasity Institute Student Management</title>
 </head>
-<body>
+<body style="padding-top: 70px">
 <!--Nav bar is included-->
 <nav data-th-replace="~{fragments/navBar :: navBarFragment}"></nav>
 
@@ -111,13 +111,14 @@
                 <label class="control-label mt-1" data-th-for="${school}"><b>School :</b></label>
             </div>
             <label class="col-md-8">
-                <select class="form-control" data-th-field="*{school}" required tabindex="4" type="text"/>
+                <select class="form-control" data-th-field="*{school}" required tabindex="4" >
                 <option value="">Please select</option>
                 <option data-th-each="school : ${schools}"
                         data-th-text="${school.name}"
                         data-th-value="${school}">
                     Please select
                 </option>
+                </select>
             </label>
         </div>
         <!--Address-->

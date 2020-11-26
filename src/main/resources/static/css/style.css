@@ -76,7 +76,7 @@ font-weight: 900;
     background-color:blue;
     border: 1px solid black ;
 }
-p {
+#lgk {
     font-size: 40px;
    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     color:white;
@@ -106,8 +106,4 @@ div{
 }
 #btn1:hover{
     background-color: rgb(86, 204, 7);
-}
-#myTable{
-    border-radius: 20px;
-
 }
