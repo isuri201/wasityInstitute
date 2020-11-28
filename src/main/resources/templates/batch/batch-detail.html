@@ -5,31 +5,24 @@
     <meta charset="UTF-8">
     <title>Thymeleaf Springboot </title>
 </head>
-<body>
+<body style="padding-top: 70px">
 <!--Nav bar is included-->
 <nav data-th-replace="~{fragments/navBar :: navBarFragment}"></nav>
 
-<div class="row " id="hd">
-    <div class="col-4">
-
-    </div>
-    <div class="col-4">
-        <h1 id="fh1">Batch Management <br> Batch Details</h1>
-    </div>
-    <div class="col-4">
-
-    </div>
+<div class="card"   id="hd">
+    <div class="card  text-white text-center" id="fh1"> BATCH DETAILS</div>
 </div>
+
 <!--Batch detail-->
-<div class="container-fluid" data-th-fragment="batchDetail">
+<div class="container-fluid" data-th-fragment="batchDetail" id="frm">
     <div class="row"><div class="col-md-8"></div>
         <div class="col-sm-2">
-            <a href="/subject/new">
-                <button class="btn btn-info mt-1 ml-5" id="bta">New Subject</button>
+            <a href="/batch/new">
+                <button class="btn btn-info mt-1 ml-5" id="bta">New batch</button>
             </a></div>
         <div class="col-sm-2">
-            <a href="/subject">
-                <button class="btn btn-primary mt-1" id="bta">All Subject</button>
+            <a href="/batch">
+                <button class="btn btn-primary mt-1" id="bta"> <i class="fa fa-list"></i>&nbsp; Batch List</button>
             </a></div></div>
     <!--Class Referance-->
     <div class="form-row text-right mt-4">
@@ -37,7 +30,7 @@
             <label class="control-label mt-1" data-th-for="${classReferance}"><b>Class Referance :</b></label>
         </div>
         <div class="col-md-4">
-            <p class="form-control" data-th-text="${batchDetail.classReferance}" style="text-shadow: none;font-family: 'Cambria Math';font-style: normal"></p>
+            <p class="form-control" data-th-text="${batchDetail.classReferance}" style="text-align:left;"></p>
         </div>
     </div>
     <!--Grade-->
@@ -46,7 +39,7 @@
             <label class="control-label mt-1" data-th-for="${grade}"><b>Grade :</b></label>
         </div>
         <div class="col-md-4">
-            <p class="form-control" data-th-text="${batchDetail.grade}" style="text-shadow: none;font-family: 'Cambria Math';font-style: normal"></p>
+            <p class="form-control" data-th-text="${batchDetail.grade}" style="text-align:left;"></p>
         </div>
     </div>
     <!--Year-->
@@ -55,7 +48,7 @@
             <label class="control-label mt-1" data-th-for="${year}"><b>year :</b></label>
         </div>
         <div class="col-md-4">
-            <p class="form-control" data-th-text="${batchDetail.year}"  style="text-shadow: none;font-family: 'Cambria Math';font-style: normal"></p>
+            <p class="form-control" data-th-text="${batchDetail.year}"  style="text-align:left;"></p>
         </div>
     </div>
     <!--Teacher-->
@@ -64,7 +57,7 @@
             <label class="control-label" mt-1 data-th-for="${teacherName}"><b>Teacher Name :</b></label>
         </div>
         <div class="col-md-4">
-            <p class="form-control" data-th-text="${batchDetail.teacherName}"  style="text-shadow: none;font-family: 'Cambria Math';font-style: normal"></p>
+            <p class="form-control" data-th-text="${batchDetail.teacherName}"  style="text-align:left;"></p>
         </div>
     </div>
 

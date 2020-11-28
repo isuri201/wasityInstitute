@@ -5,25 +5,19 @@
     <meta charset="UTF-8">
     <title>Thymeleaf Springboot </title>
 </head>
-<body>
+<body style="padding-top: 80px">
 <!--Nav bar is included-->
 <nav data-th-replace="~{fragments/navBar :: navBarFragment}"></nav>
 
-<div class="row " id="hd">
-    <div class="col-4">
-
-    </div>
-    <div class="col-4">
-        <h1 id="fh1">Hall Management</h1>
-    </div>
-    <div class="col-4"></div>
+<div class="card"   id="hd">
+    <div class="card  text-white text-center" id="fh1">ALL HALLS</div>
 </div>
 
 <div class="container-fluid">
     <div class="row"><div class="col-md-10"></div>
         <div class="col-sm-2">
             <a href="/hall/new">
-                <button class="btn btn-primary mt-1 " id="bta">New hall</button>
+                <button class="btn btn-primary mt-1 " id="bta">New Hall</button>
             </a></div></div>
     <table class="table table-dark table-hover  table-inverse table-responsive-sm text-center mt-3 " id="myTable">
         <thead class="thead-inverse">

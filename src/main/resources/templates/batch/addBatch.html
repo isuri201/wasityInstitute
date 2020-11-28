@@ -5,42 +5,36 @@
     <meta charset="UTF-8">
     <title>Thymeleaf Springboot </title>
 </head>
-<body>
+<body style="padding-top: 80px">
 <!--Nav bar is included-->
 <nav data-th-replace="~{fragments/navBar :: navBarFragment}"></nav>
 
-<div class="row " id="hd">
-    <div class="col-4">
-    </div>
-    <div class="col-4">
-        <h1 id="fh1">Batch Management <br>Add new batch</h1>
-    </div>
-    <div class="col-4">
-
-    </div>
+<div class="card"   id="hd">
+    <div class="card  text-white text-center" id="fh1">NEW BATCH</div>
 </div>
-<div class="container-fluid ">
+
+<div class="container-fluid " id="frm">
     <div class="row"><div class="col-md-10"></div>
         <div class="col-sm-2 mt-1" ><a href="/batch">
-            <button class="btn btn-primary" id="bta">All Batch</button>
+            <button class="btn btn-primary" id="bta"> <i class="fa fa-list"></i>&nbsp; Batch List</button>
         </a>
         </div>
     </div>
     <form action="/batch/save" data-th-object="${batch}" method="post">
         <!--batch id-->
-        <div class="form-row text-right" data-th-if="${addStatus==false}">
-            <div class="col-md-4">
-                <label data-th-for="${id}">Id</label>
+        <div class="form-row text-right mt-4" data-th-if="${addStatus==false}">
+            <div class="col-md-4 col-sm-6">
+                <label data-th-for="${id}" class="control-label"><b>Id :</b></label>
             </div>
-            <div class="col-md-8">
-                <label>
+
+                <label class="col-md-4  col-sm-6 ">
                     <input class="form-control" data-th-field="*{id}" readonly type="text">
                 </label>
 
-            </div>
+
         </div>
         <!-- Class Reference-->
-        <div class="form-row text-right mt-4  ">
+        <div class="form-row text-right   ">
             <div class="col-md-4 col-sm-6">
                 <label class="control-label mt-1" data-th-for="${classReferance}"><b>Class Referance :</b></label>
             </div>
