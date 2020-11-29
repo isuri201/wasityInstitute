@@ -5,79 +5,80 @@
     <meta charset="UTF-8">
     <title>Thymeleaf Springboot </title>
 </head>
-<body>
+<body style="padding-top: 80px">
 <!--Nav bar is included-->
 <nav data-th-replace="~{fragments/navBar :: navBarFragment}"></nav>
 
-<div class="row bg-secondary">
-    <div class="col-4">
-        <a href="/discount/new">
-            <button class="btn btn-info">New Discount</button>
-        </a>
-    </div>
-    <div class="col-4">
-        <h1>Discount Management - Discount Detail</h1>
-    </div>
-    <div class="col-4">
-        <a href="/discount">
-            <button class="btn btn-primary">All Discount</button>
-        </a>
-    </div>
+<div class="card"   id="hd">
+    <div class="card  text-white text-center" id="fh1">NEW DISCOUNT</div>
+
 </div>
+
 <!--Discount detail-->
 <div class="container-fluid" data-th-fragment="discountDetail">
+    <div class="row" ><div class="col-md-8"></div>
+        <div class="col-sm-2">
+            <a href="/discount/new">
+                <button class="btn btn-info mt-1 ml-5" id="bta">Create Discount</button>
+            </a></div>
+        <div class="col-sm-2">
+            <a href="/discount">
+                <button class="btn btn-primary mt-1" id="bta"> <i class="fa fa-list"></i>&nbsp; Discount List</button>
+            </a></div></div>
+
     <!-- Discount Name-->
-    <div class="form-row text-right">
-        <div class="col-md-4">
+    <form>
+    <div class="form-row ">
+        <div class="col-md-4 text-right">
             <label class="control-label" data-th-for="${discountName}">Discount Name :</label>
         </div>
-        <div class="col-md-8">
+        <div class="col-md-4">
             <p class="form-control" data-th-text="${discountDetail.discountName}"></p>
         </div>
     </div>
     <!--Discount Type-->
-    <div class="form-row text-right">
-        <div class="col-md-4">
+    <div class="form-row" >
+        <div class="col-md-4 text-right">
             <label class="control-label" data-th-for="${discountType}">Discount type :</label>
         </div>
-        <div class="col-md-8">
+        <div class="col-md-4">
             <p class="form-control" data-th-text="${discountDetail.discountType}"></p>
         </div>
     </div>
     <!--Amount-->
-    <div class="form-row text-right">
-        <div class="col-md-4">
+    <div class="form-row ">
+        <div class="col-md-4 text-right">
             <label class="control-label" data-th-for="${discountAmount}">Discount Amount :</label>
         </div>
-        <div class="col-md-8">
+        <div class="col-md-4">
             <p class="form-control" data-th-text="${discountDetail.discountAmount}"></p>
         </div>
     </div>
     <!--Approved By-->
-    <div class="form-row text-right">
-        <div class="col-md-4">
+    <div class="form-row ">
+        <div class="col-md-4 text-right">
             <label class="control-label" data-th-for="${approvedBy}">Approved by</label>
         </div>
-        <div class="col-md-8">
+        <div class="col-md-4">
             <p class="form-control" data-th-text="${discountDetail.approvedBy}"></p>
         </div>
     </div>
     <!--current Status-->
-    <div class="form-row text-right">
-        <div class="col-md-4">
+    <div class="form-row ">
+        <div class="col-md-4 text-right">
             <label class="control-label" data-th-for="${discountStatus}">Current status</label>
         </div>
-        <div class="col-md-8">
+        <div class="col-md-4">
             <p class="form-control" data-th-text="${discountDetail.discountStatus}"></p>
         </div>
     </div>
-
+    </form>
 
 </div>
 <!--Button-->
 <div class="form-discount col-md-12 col-sm-12 text-center flex-column ">
     <a href="/discount">
-        <button class="btn btn-success" tabindex="21" type="submit">
+        <button class="btn btn-success" tabindex="21" type="submit" id="bts">
             Back
         </button>
     </a>

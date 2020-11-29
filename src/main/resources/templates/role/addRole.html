@@ -4,34 +4,23 @@
     <meta charset="UTF-8">
     <title>Thymeleaf Springboot </title>
 </head>
-<body>
+<body style="padding-top: 80px">
 <nav th:replace="~{fragments/navBar :: navBarFragment}"></nav>
 
-<div class="container-fluid bg-secondary form-Border">
-    <div class="row text-center formManagement border-info">
-        <div class="col">
-            <a class="btn btn-primary" href="/home">
-                <i class="fa fa-home" style="font-size: 20px"></i> &nbsp; Home
-            </a>
-        </div>
-        <div class="col">
-            <h4 class="text-light text-center">
-                <strong>
-                    <span id="formHeader" th:text="${addStatus==true?'New Role ':'Update Role'}"></span>
-                </strong>
-            </h4>
-        </div>
-        <div class="col">
-            <a href="/role" class="btn btn-primary">
-                <i class="fa fa-list"></i>&nbsp; View List
-            </a>
-        </div>
-    </div>
+
+<div class="card"   id="hd">
+    <div class="card  text-white text-center" id="fh1" th:text="${addStatus==true?'New Role ':'Update Role'}"></div>
+
 </div>
-<div class="container-fluid bg-dark formBorder">
+
+<div class="container-fluid" id="frm">
+    <div class="row"><div class="col-md-10"></div>
+        <div class="col-sm-2"> <a href="/role">
+            <button class="btn btn-primary mt-1 "  id="bta"> <i class="fa fa-list"></i>&nbsp; Role List</button>
+        </a></div></div>
     <div class="col-sm-12 flex-column ">
-        <form id="form" class="form-horizontal" method="POST" th:action="${addStatus==true?'/role/add':'/role/update'}"
-              th:object="${role}">
+        <form id="form" class="form-horizontal mt-xl-5" method="POST" th:action="${addStatus==true?'/role/add':'/role/update'}"
+              th:object="${role}" >
             <div class="form-batch col-md-12 col-sm-12 text-center flex-column">
                 <div class="col-sm-6 col-md-6 offset-2">
                     <div id="idHide" th:if="${addStatus==false}" class="form-row text-right">
@@ -54,10 +43,11 @@
                 </div>
             </div>
             <div class="form-batch col-md-12 col-sm-12 text-center flex-column">
-                <button class="btn btn-success" type="submit">
+                <button class="btn btn-success" type="submit" id="bts">
                     <i class="fa fa-save" style="font-size: 20px"></i>&nbsp; &nbsp;<span
-                        id="submit" th:text="${addStatus==true?'Save': 'Update'}">                        </span>
+                        id="submit" th:text="${addStatus==true?'Save': 'Update'}"> </span>
                 </button>
+                <button class="btn btn-danger mt-4 ml-lg-5 mb-lg-4 " type="reset" id="btr"> reset</button>
             </div>
             <!--Error-->
             <div class="form-row">

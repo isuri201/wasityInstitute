@@ -5,24 +5,21 @@
     <meta charset="UTF-8">
     <title>Thymeleaf Springboot </title>
 </head>
-<body>
+<body style="padding-top: 80px">
 <!--Nav bar is included-->
 <nav data-th-replace="~{fragments/navBar :: navBarFragment}"></nav>
 
-<div class="row bg-secondary">
-    <div class="col-4">
-    </div>
-    <div class="col-4">
-        <h1>Payment Management - Make a Payment</h1>
-    </div>
-    <div class="col-4">
-        <a href="/payment">
-            <button class="btn btn-primary">View All Payment</button>
-        </a>
-    </div>
+<div class="card"   id="hd">
+    <div class="card  text-white text-center" id="fh1">NEW PAYMENT</div>
+
 </div>
-<div class="container-fluid">
-    <form action="/payment/save" data-th-object="${payment}" method="post">
+<div class="container-fluid" id="frm">
+    <div class="row"><div class="col-md-10"></div>
+        <div class="col-sm-2"> <a href="/payment">
+            <button class="btn btn-primary mt-1 "  id="bta"> <i class="fa fa-list"></i>&nbsp; Payment List</button>
+        </a></div></div>
+
+    <form action="/payment/save" data-th-object="${payment}" method="post" class="mt-4">
         <!--payment id-->
         <div class="form-row text-right" data-th-if="${addStatus==false}">
             <div class="col-md-4">
@@ -39,66 +36,67 @@
             <div class="col-md-4">
                 <label class="control-label" data-th-for="${discountStatus}">Discount Status :</label>
             </div>
-            <div class="col-md-8">
-                <label>
+            <label class="col-md-4">
+
                     <input class="form-control" data-th-field="*{discountStatus}" required tabindex="4" type="text"/>
-                </label>
+
                 <span data-th-errors="*{discountStatus}"
                       data-th-if="${#fields.hasErrors('discountStatus')}">Error Name</span>
-            </div>
+            </label>
         </div>
         <!--amount-->
         <div class="form-row text-right">
             <div class="col-md-4">
                 <label class="control-label" data-th-for="${amount}">amount :</label>
             </div>
-            <div class="col-md-8">
+            <label class="col-md-4">
                 <input class="form-control" data-th-field="*{amount}" required tabindex="4" type="text"/>
                 <span data-th-errors="*{amount}"
                       data-th-if="${#fields.hasErrors('amount')}">Error Name</span>
-            </div>
+            </label>
         </div>
         <!--time-->
         <div class="form-row text-right">
             <div class="col-md-4">
                 <label class="control-label" data-th-for="${createdTime}">Time :</label>
             </div>
-            <div class="col-md-8">
+            <label class="col-md-4">
                 <input class="form-control" data-th-field="*{createdTime}" required tabindex="4" type="text"/>
                 <span data-th-errors="*{createdTime}"
                       data-th-if="${#fields.hasErrors('createdTime')}">Error Name</span>
-            </div>
+            </label>
         </div>
         <!--date-->
         <div class="form-row text-right">
             <div class="col-md-4">
                 <label class="control-label" data-th-for="${createdDate}">Date :</label>
             </div>
-            <div class="col-md-8">
+            <label class="col-md-4">
                 <input class="form-control" data-th-field="*{createdDate}" required tabindex="4" type="text"/>
                 <span data-th-errors="*{createdDate}"
                       data-th-if="${#fields.hasErrors('createdDate')}">Error Name</span>
-            </div>
+            </label>
         </div>
         <!--created By-->
         <div class="form-row text-right">
             <div class="col-md-4">
                 <label class="control-label" data-th-for="${createdBy}">Created User :</label>
             </div>
-            <div class="col-md-8">
+            <label class="col-md-4">
                 <input class="form-control" data-th-field="*{createdBy}" required tabindex="4" type="text"/>
                 <span data-th-errors="*{createdBy}"
                       data-th-if="${#fields.hasErrors('createdBy')}">Error Name</span>
-            </div>
+            </label>
         </div>
 
         <!--Button-->
         <div class="form-batch col-md-12 col-sm-12 text-center flex-column ">
-            <button class="btn btn-success" tabindex="21" type="submit">
+            <button class="btn btn-success" tabindex="21" type="submit" id="bts">
                 <i class="fa fa-save " style="font-size: 20px"></i>&nbsp; &nbsp;<span
                     data-th-text="${addStatus==true?'Save': 'Update'}"
                     id="submit"></span>
             </button>
+           <button class="btn btn-danger mt-4 ml-lg-5 mb-lg-4 " type="reset" id="btr"><i class="fa fa-refresh" style="font-size: 20px"></i> reset</button>
         </div>
     </form>
 </div>

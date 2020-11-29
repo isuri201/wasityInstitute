@@ -5,73 +5,79 @@
     <meta charset="UTF-8">
     <title>Student Management</title>
 </head>
-<body>
+<body style="padding-top: 80px">
 <!--Nav bar is included-->
 <nav data-th-replace="~{fragments/navBar :: navBarFragment}"></nav>
 
-<div class="row bg-secondary">
-    <div class="col-4">
-        <a href="/timeTable/new">
-            <button class="btn btn-info">New Time Slot Add</button>
-        </a>
-    </div>
-    <div class="col-4">
-        <h1>Time Table Management</h1>
-    </div>
-    <div class="col-4">
-        <a href="/timeTable">
-            <button class="btn btn-primary">View All Student</button>
-        </a>
-    </div>
+<div class="card"   id="hd">
+    <div class="card  text-white text-center" id="fh1">TIMETABLE DETAILS</div>
+
 </div>
+
 <!--Student detail-->
-<div class="container-fluid" data-th-fragment="timeTableDetail">
+<div class="container-fluid" data-th-fragment="timeTableDetail" id="frm">
+    <div class="row" ><div class="col-md-8"></div>
+
+        <div class="col-sm-2">
+
+            <a href="/timeTable/new">
+                <button class="btn btn-info mt-1 ml-5" id="bta">New Timetable</button>
+            </a></div>
+        <div class="col-sm-2">
+            <a href="/timeTable">
+                <button class="btn btn-primary mt-1" id="bta"> <i class="fa fa-list"></i>&nbsp; Timetable List</button>
+            </a></div></div>
     <!--timeTable id-->
-    <div class="form-batch">
-        <label data-th-for="${id}">Id</label>
-        <p class="form-control" data-th-text="${timeTableDetail.id}"></p>
-    </div>
+    <form class="mt-4">
+    <div class="form-row">
+        <div class="col-md-4 text-right">
+        <label data-th-for="${id}">Id :</label>
+        </div>
+
+        <div class="col-sm-4">
+        <p class="form-control" data-th-text="${timeTableDetail.id}"></p></div></div>
     <!--Date-->
-    <div class="form-row text-right">
-        <div class="col-md-4">
+    <div class="form-row ">
+        <div class="col-md-4 text-right">
             <label class="control-label" data-th-for="${date}">Date:</label>
         </div>
-        <div class="col-md-8">
+        <div class="col-md-4">
             <p class="form-control" data-th-text="${timeTableDetail.date}"></p>
         </div>
     </div>
     <!--Time-->
-    <div class="form-row text-right">
-        <div class="col-md-4">
+    <div class="form-row ">
+        <div class="col-md-4 text-right">
             <label class="control-label" data-th-for="${time}">Time :</label>
         </div>
-        <div class="col-md-8">
+        <div class="col-md-4">
             <p class="form-control" data-th-text="${timeTableDetail.time}"></p>
         </div>
     </div>
     <!--Teacher-->
-    <div class="form-row text-right">
-        <div class="col-md-4">
+    <div class="form-row ">
+        <div class="col-md-4 text-right">
             <label class="control-label">Teacher :</label>
         </div>
-        <div class="col-md-8">
+        <div class="col-md-4">
             <p class="form-control" data-th-text="${timeTableDetail.teacher}"></p>
         </div>
     </div>
     <!--Hall Number-->
-    <div class="form-row text-right">
-        <div class="col-md-4">
+    <div class="form-row ">
+        <div class="col-md-4 text-right">
             <label class="control-label">Hall Number :</label>
         </div>
-        <div class="col-md-8">
+        <div class="col-md-4">
             <p class="form-control" data-th-text="${timeTableDetail.hallNumber}"></p>
         </div>
     </div>
+    </form>
 </div>
 <!--Button-->
 <div class="form-batch col-md-12 col-sm-12 text-center flex-column ">
     <a href="/timeTable">
-        <button class="btn btn-success" tabindex="21" type="submit">
+        <button class="btn btn-success" tabindex="21" type="submit" id="bts">
             Back
         </button>
     </a>
