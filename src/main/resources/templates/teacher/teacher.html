@@ -38,9 +38,9 @@
             <td data-th-text="${teacher.subject.name}"></td>
             <td data-th-text="${teacher.mobile}"></td>
             <td>
-                <a data-th-href="${'/teacher/view/'+ teacher.id}"><button class="btn btn-info">View</button></a>
-                <a data-th-href="${'/teacher/edit/'+ teacher.id}"><button class="btn btn-success">Edit</button></a>
-                <a data-th-href="${'/teacher/delete/'+ teacher.id}"><button class="btn btn-danger">Delete</button></a>
+                <a data-th-href="${'/teacher/view/'+ teacher.id}"><button class="btn btn-info"style="width: 20%;border-radius: 12px;">View</button></a>
+                <a data-th-href="${'/teacher/edit/'+ teacher.id}"><button class="btn btn-success ml-4" style="width: 20%;border-radius: 12px;"><i class="fa fa-edit"></i>&nbsp;Edit</button></a>
+                <a data-th-href="${'/teacher/delete/'+ teacher.id}"><button class="btn btn-danger ml-4" style="width: 20%;border-radius: 12px;"><i class="fa fa-trash"></i>&nbsp;Delete</button></a>
             </td>
         </tr>
         </tbody>

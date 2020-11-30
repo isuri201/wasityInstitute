@@ -77,7 +77,7 @@
                            data-th-name="${'gender'}"
                            data-th-value="${genders}"
                            data-th-id="${index.index}+${genders}" type="radio"
-                           data-th-checked="${genders==gender}"/>
+                           data-th-checked="${genders==gender}" id="gender"/>
                     <label class="custom-control-label"
                            data-th-for="${index.index}+${genders}"
                            data-th-text="${genders.gender}"> radio
@@ -94,7 +94,7 @@
                 <input class="form-control" data-th-field="*{dob}" id="dateOfBirth"
                        placeholder="Enter Your B'day"
                        required
-                       tabindex="8" type="date"/>
+                       tabindex="8" type="date" id="dob"/>
                 <span class="error" data-th-errors="*{dob}"
                       data-th-if="${#fields.hasErrors('dob')}" id="dateOfBirthError">Error Birthday</span>
             </label>

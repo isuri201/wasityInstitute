@@ -41,9 +41,9 @@
             <td data-th-text="${timeTable.teacher}"></td>
             <td data-th-text="${timeTable.hallNumber}"></td>
             <td>
-                <a data-th-href="${'/timeTable/view/'+ timeTable.id}"><button class="btn btn-info">View</button></a>
-                <a data-th-href="${'/timeTable/edit/'+ timeTable.id}"><button class="btn btn-success">Update</button></a>
-                <a data-th-href="${'/timeTable/delete/'+ timeTable.id}"><button class="btn btn-danger">Delete</button></a>
+                <a data-th-href="${'/timeTable/view/'+ timeTable.id}"><button class="btn btn-info" style="width: 15%;border-radius: 12px;">View</button></a>
+                <a data-th-href="${'/timeTable/edit/'+ timeTable.id}"><button class="btn btn-success ml-4" style="width: 15%;border-radius: 12px;"><i class="fa fa-edit"></i>&nbsp;Update</button></a>
+                <a data-th-href="${'/timeTable/delete/'+ timeTable.id}"><button class="btn btn-danger ml-4" style="width: 15%;border-radius: 12px;"><i class="fa fa-trash"></i>&nbsp;Delete</button></a>
             </td>
         </tr>
         </tbody>

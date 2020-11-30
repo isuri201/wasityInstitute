@@ -46,12 +46,12 @@
                     <th data-th-text="${school.name}"></th>
                     <th>
                         <a data-th-href="${'/school/edit/' + school.id}"
-                           class="btn btn-primary btn-sm"><i class="fa fa-edit"></i>&nbsp;Edit</a>
+                           class="btn btn-primary btn-sm" style="width: 25%;border-radius: 12px;"><i class="fa fa-edit"></i>&nbsp;Edit</a>
                         <a data-th-href="${'/school/delete/' + school.id}"
                            data-th-if="${#authorization.expression('hasRole(''ROLE_ADMIN'')')}"
                            class="btn btn-danger btn-sm">
                             <i class="fa fa-trash"></i>
-                            Delete</a>
+                            &nbsp;Delete</a>
                     </th>
                 </tr>
                 </tbody>
