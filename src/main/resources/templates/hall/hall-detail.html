@@ -24,7 +24,7 @@
                 <button class="btn btn-primary mt-1" id="bta"><i class="fa fa-list"></i>&nbsp; Hall List</button>
             </a></div></div>
     <!--hall id-->
-    <div class="form-row mt-3"data-th-if="${addStatus==false}">
+    <div class="form-row mt-3" data-th-if="${addStatus==false}">
         <div class="col-md-4 text-right " >
        <label class="control-label" data-th-for="${id}">Id :</label></div>
 
@@ -54,15 +54,6 @@
         </div>
         <div class="col-md-4">
             <p class="form-control" data-th-text="${hallDetail.seatCount}" style="text-align:left;"></p>
-        </div>
-    </div>
-    <!--location-->
-    <div class="form-row text-right">
-        <div class="col-md-4">
-            <label class="control-label" data-th-for="${HallLocation}">Hall location :</label>
-        </div>
-        <div class="col-md-4">
-            <p class="form-control" data-th-text="${hallDetail.HallLocation}" style="text-align:left;"></p>
         </div>
     </div>
 </div>
