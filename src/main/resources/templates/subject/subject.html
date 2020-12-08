@@ -5,21 +5,15 @@
     <meta charset="UTF-8">
     <title>Thymeleaf Springboot </title>
 </head>
-<body>
+<body style="padding-top: 80px">
 <!--Nav bar is included-->
 <nav data-th-replace="~{fragments/navBar :: navBarFragment}"></nav>
 
-<div class="row " id="hd">
-    <div class="col-4">
-
-    </div>
-    <div class="col-4">
-        <h1 id="fh1">Subject Management </h1>
-    </div>
-    <div class="col-4"></div>
+<div class="card"   id="hd">
+    <div class="card  text-white text-center" id="fh1">ALL SUBJECTS</div>
 </div>
 
-<div class="container-fluid table-responsive " >
+<div class="container-fluid table-responsive " id="frm">
     <div class="row"><div class="col-md-10"></div>
     <a href="/subject/new">
        <div class="col-sm-2"><button class="btn btn-primary mt-1 " id="bta">New Subject</button></div>
@@ -40,8 +34,8 @@
             <td data-th-text="${subject.code}"></td>
             <td >
                 <a data-th-href="${'/subject/view/'+ subject.id}"><button class="btn btn-info" style="width: 15%;border-radius: 12px;" >View</button></a>
-                <a data-th-href="${'/subject/edit/'+ subject.id}"><button class="btn btn-success ml-4"  style="width: 15%;border-radius: 12px;">Edit</button></a>
-                <a data-th-href="${'/subject/delete/'+ subject.id}"><button class="btn btn-danger ml-4"  style="width: 15%;border-radius: 12px;">Delete</button></a>
+                <a data-th-href="${'/subject/edit/'+ subject.id}"><button class="btn btn-success ml-4"  style="width: 15%;border-radius: 12px;"><i class="fa fa-edit"></i>&nbsp;Edit</button></a>
+                <a data-th-href="${'/subject/delete/'+ subject.id}"><button class="btn btn-danger ml-4"  style="width: 15%;border-radius: 12px;"><i class="fa fa-trash"></i>&nbsp;Delete</button></a>
             </td>
         </tr>
         </tbody>

@@ -5,24 +5,23 @@
     <meta charset="UTF-8">
     <title>Thymeleaf Springboot </title>
 </head>
-<body>
+<body style="padding-top: 80px">
 <!--Nav bar is included-->
 <nav data-th-replace="~{fragments/navBar :: navBarFragment}"></nav>
 
-<div class="row bg-secondary">
-    <div class="col-4">
-        <a href="/payment/new">
-            <button class="btn btn-primary">Create Payment</button>
-        </a>
-    </div>
-    <div class="col-4">
-        <h1>Payment Management</h1>
-    </div>
-    <div class="col-4"></div>
+<div class="card"   id="hd">
+    <div class="card  text-white text-center" id="fh1">NEW PAYMENT</div>
+
 </div>
 
-<div class="container-fluid">
-    <table class="table table-striped table-inverse table-responsive" id="myTable">
+
+<div class="container-fluid" id="frm">
+
+    <div class="row"><div class="col-md-10"></div>
+        <div class="col-sm-2"> <a href="/payment/new">
+            <button class="btn btn-primary mt-1 "  id="bta"> Create&nbsp; Payment </button>
+        </a></div></div>
+    <table class="table table-striped table-inverse table-responsive-sm table-dark text-center" id="myTable">
         <thead class="thead-inverse">
         <tr>
             <th>Payment Referance</th>
@@ -45,9 +44,9 @@
             <td data-th-text="${payment.createdTime}"></td>
             <td data-th-text="${payment.createdBy}"></td>
             <td>
-                <a data-th-href="${'/payment/view/'+ payment.id}"><button class="btn btn-info">View</button></a>
-                <a data-th-href="${'/payment/edit/'+ payment.id}"><button class="btn btn-success">Edit</button></a>
-                <a data-th-href="${'/payment/delete/'+ payment.id}"><button class="btn btn-danger">Delete</button></a>
+                <a data-th-href="${'/payment/view/'+ payment.id}"><button class="btn btn-info"style="width: 25%;border-radius: 12px;">View</button></a>
+                <a data-th-href="${'/payment/edit/'+ payment.id}"><button class="btn btn-success ml-4" style="width: 25%;border-radius: 12px;"><i class="fa fa-edit"></i>&nbsp;Edit</button></a>
+                <a data-th-href="${'/payment/delete/'+ payment.id}"><button class="btn btn-danger ml-4"style="width: 25%;border-radius: 12px;"><i class="fa fa-trash"></i>&nbsp;Delete</button></a>
             </td>
         </tr>
         </tbody>

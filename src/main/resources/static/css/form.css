@@ -1,8 +1,16 @@
+body{
+
+background-image:url('../img/bg/mi.jpg') ;
+
+}
+#frm{
+    font-family: "Cambria Math";
+
+}
 #fh1{
     font-family: 'Cambria Math';
-    color: #111111;
-    text-shadow: 2px 2px 5px red;
-    text-align: center;
+   background-color: #a2242f;
+    font-size: xx-large;
 }
 #bta{
    background-color: rgba(0,7,61,0.99);
@@ -16,16 +24,11 @@
 #bta:active{
     transform: translateY(4px);
 }
-#lab{
-    color: #111111;
-}
-#d {
-    color: #111111;
-    text-shadow: none;
-}
-label{
-    color: #111111;
 
+
+label{
+
+    color: #111111;
 }
 #bts {
     background-color:green;
@@ -53,5 +56,10 @@ label{
     transform: translateY(4px);
 }
 #hd{
-    background-color: #fab443;
+    background-color:#a2242f;
 }
+#myTable {
+    border-radius: 10px;
+}
+
+

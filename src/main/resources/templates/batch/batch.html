@@ -5,25 +5,20 @@
     <meta charset="UTF-8">
     <title>Thymeleaf Springboot </title>
 </head>
-<body>
+<body style="padding-top: 80px">
 <!--Nav bar is included-->
 <nav data-th-replace="~{fragments/navBar :: navBarFragment}"></nav>
 
-<div class="row" id="hd">
-    <div class="col-4">
-
-    </div>
-    <div class="col-4">
-        <h1 id="fh1">Batch Management</h1>
-    </div>
-    <div class="col-4"></div>
+<div class="card"   id="hd">
+    <div class="card  text-white text-center" id="fh1">ALL BATCHES</div>
 </div>
 
-<div class="container-fluid table-responsive">
+
+<div class="container-fluid table-responsive" id="frm">
     <div class="row"><div class="col-md-10"></div>
         <div class="col-sm-2">
-        <a href="/subject/new">
-           <button class="btn btn-primary mt-1 " id="bta">New Subject</button>
+        <a href="/batch/new">
+           <button class="btn btn-primary mt-1 " id="bta">New Batch</button>
         </a></div></div>
     <table class="table table-dark table-hover  table-inverse table-responsive-sm text-center mt-3" id="myTable">
         <thead class="thead-inverse">
@@ -48,10 +43,10 @@
             <td data-th-text="${batch.teacherName}"></td>
 
 
-            <td>
+            <td id="tbb">
                 <a data-th-href="${'/batch/view/'+ batch.id}"><button class="btn btn-info" style="width: 25%;border-radius: 12px;">View</button></a>
-                <a data-th-href="${'/batch/edit/'+ batch.id}"><button class="btn btn-success ml-4" style="width: 25%;border-radius: 12px;">Edit</button></a>
-                <a data-th-href="${'/batch/delete/'+ batch.id}"><button class="btn btn-danger ml-4" style="width: 25%;border-radius: 12px;">Delete</button></a>
+                <a data-th-href="${'/batch/edit/'+ batch.id}"><button class="btn btn-success ml-4" style="width: 25%;border-radius: 12px;"><i class="fa fa-edit" ></i>&nbsp;Edit</button></a>
+                <a data-th-href="${'/batch/delete/'+ batch.id}"><button class="btn btn-danger ml-4" style="width: 25%;border-radius: 12px;"><i class="fa fa-trash" ></i>&nbsp;Delete</button></a>
             </td>
         </tr>
         </tbody>

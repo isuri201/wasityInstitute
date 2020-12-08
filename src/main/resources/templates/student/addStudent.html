@@ -5,26 +5,20 @@
     <meta charset="UTF-8">
     <title>Wasity Institute Student Management</title>
 </head>
-<body>
+<body style="padding-top: 80px">
 <!--Nav bar is included-->
 <nav data-th-replace="~{fragments/navBar :: navBarFragment}"></nav>
 
-<div class="row " id="hd">
-    <div class="col-4">
-    </div>
-    <div class="col-4">
-        <h1 id="fh1">Student Management <br> Add new student</h1>
-    </div>
-    <div class="col-4">
+<div class="card"   id="hd">
+    <div class="card  text-white text-center" id="fh1">NEW STUDENT</div>
 
-    </div>
 </div>
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-10"></div>
         <div class="col-md-2">
             <a href="/student">
-                <button class="btn btn-primary mt-1" id="bta">All Students</button>
+                <button class="btn btn-primary mt-1" id="bta"><i class="fa fa-list"></i>&nbsp; Student List</button>
             </a>
         </div>
     </div>
@@ -83,7 +77,7 @@
                            data-th-name="${'gender'}"
                            data-th-value="${genders}"
                            data-th-id="${index.index}+${genders}" type="radio"
-                           data-th-checked="${genders==gender}"/>
+                           data-th-checked="${genders==gender}" id="gender"/>
                     <label class="custom-control-label"
                            data-th-for="${index.index}+${genders}"
                            data-th-text="${genders.gender}"> radio
@@ -100,7 +94,7 @@
                 <input class="form-control" data-th-field="*{dob}" id="dateOfBirth"
                        placeholder="Enter Your B'day"
                        required
-                       tabindex="8" type="date"/>
+                       tabindex="8" type="date" id="dob"/>
                 <span class="error" data-th-errors="*{dob}"
                       data-th-if="${#fields.hasErrors('dob')}" id="dateOfBirthError">Error Birthday</span>
             </label>
@@ -111,13 +105,14 @@
                 <label class="control-label mt-1" data-th-for="${school}"><b>School :</b></label>
             </div>
             <label class="col-md-8">
-                <select class="form-control" data-th-field="*{school}" required tabindex="4" type="text"/>
+                <select class="form-control" data-th-field="*{school}" required tabindex="4" >
                 <option value="">Please select</option>
                 <option data-th-each="school : ${schools}"
                         data-th-text="${school.name}"
                         data-th-value="${school}">
                     Please select
                 </option>
+                </select>
             </label>
         </div>
         <!--Address-->
@@ -190,7 +185,7 @@
                     data-th-text="${addStatus==true?'Save': 'Update'}"
                     id="submit"></span>
             </button>
-            <button class="btn btn-danger mt-4 ml-lg-5 mb-lg-4 " type="reset" id="btr">reset</button>
+            <button class="btn btn-danger mt-4 ml-lg-5 mb-lg-4 " type="reset" id="btr"><i class="fa fa-redo" style="font-size: 20px"></i>&nbsp;&nbsp; <span>Reset</span></button>
         </div>
     </form>
 </div>

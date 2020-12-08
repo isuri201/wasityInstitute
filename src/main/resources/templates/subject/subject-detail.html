@@ -5,57 +5,53 @@
     <meta charset="UTF-8">
     <title>Thymeleaf Springboot </title>
 </head>
-<body>
+<body style="padding-top: 70px;">
 <!--Nav bar is included-->
 <nav data-th-replace="~{fragments/navBar :: navBarFragment}"></nav>
 
-<div class="row " id="hd">
-    <div class="col-4">
-
-    </div>
-    <div class="col-4">
-        <h1 id="fh1">Subject Management <br> Subject Detail</h1>
-    </div>
-    <div class="col-4">
-
-    </div>
+<div class="card"   id="hd">
+    <div class="card  text-white text-center" id="fh1"> SUBJECT DETAILS</div>
 </div>
 <!--Subject detail-->
-<div class="container-fluid" data-th-fragment="subjectDetail">
-    <div class="row"><div class="col-md-8"></div>
+<div class="container-fluid" data-th-fragment="subjectDetail" id="frm" >
+    <div class="row" ><div class="col-md-8"></div>
+
    <div class="col-sm-2">
+
 <a href="/subject/new">
     <button class="btn btn-info mt-1 ml-5" id="bta">New Subject</button>
 </a></div>
         <div class="col-sm-2">
     <a href="/subject">
-        <button class="btn btn-primary mt-1" id="bta">All Subject</button>
+        <button class="btn btn-primary mt-1" id="bta"> <i class="fa fa-list"></i>&nbsp; Subject List</button>
     </a></div></div>
 
     <!--subject id-->
-    <div class="form-batch row">
+    <form class="mt-5">
+    <div class="form-batch row" data-th-if="${addStatus==false}">
         <div class="col-md-4 text-right">
-            <label data-th-for="${id}" style="font-family: 'Cambria Math';font-style: normal;"><b>Id:</b></label></div>
-        <div class="col-md-4"><p class="form-control" data-th-text="${subjectDetail.id}" style="text-shadow: none;font-family: 'Cambria Math';font-style: normal;"></p></div>
+            <label data-th-for="${id}" ><b>Id:</b></label></div>
+        <div class="col-md-4"><p class="form-control" data-th-text="${subjectDetail.id}" ></p></div>
 
 
     </div>
     <!--code-->
     <div class="form-batch row">
         <div class="col-md-4 text-right"><label data-th-for="${code}"><b>Code:</b></label></div>
-        <div class="col-md-4"><p class="form-control" data-th-text="${subjectDetail.code}" style="text-shadow: none;font-family: 'Cambria Math';font-style: normal;"></p></div>
+        <div class="col-md-4"><p class="form-control" data-th-text="${subjectDetail.code}"></p></div>
     </div>
     <!--Name-->
     <div class="form-batch row">
         <div class="col-md-4  text-right">
-            <label class="control-label" data-th-for="${name}" style="text-shadow: none;font-family: 'Cambria Math';font-style: normal;"><b>Name :</b></label>
+            <label class="control-label" data-th-for="${name}" ><b>Name :</b></label>
         </div>
         <div class="col-md-4">
-            <p class="form-control" data-th-text="${subjectDetail.name}" style="text-shadow: none;font-family: 'Cambria Math';font-style: normal;"></p></div>
+            <p class="form-control" data-th-text="${subjectDetail.name}" ></p></div>
         </div>
+</form>
     </div>
 
-</div>
+
 <!--Button-->
 <div class="form-batch col-md-12 col-sm-12 text-center flex-column ">
     <a href="/subject">

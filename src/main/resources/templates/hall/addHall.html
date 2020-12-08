@@ -5,19 +5,18 @@
     <meta charset="UTF-8">
     <title>Thymeleaf Springboot </title>
 </head>
-<body>
+<body style="padding-top: 80px">
 <!--Nav bar is included-->
 <nav data-th-replace="~{fragments/navBar :: navBarFragment}"></nav>
 
-<div class="row" id="hd">
-    <div class="col-md-4"></div>
-    <div class="col-md-4"><H1 id="fh1">Hall Management<br>Add hall</H1></div>
-    <div class="col-md-4"></div>
+<div class="card"   id="hd">
+    <div class="card  text-white text-center" id="fh1">NEW HALL</div>
 </div>
+
 <div class="container-fluid">
 <div class="row"><div class="col-md-10"></div>
     <div class="col-sm-2 mt-1" ><a href="/hall">
-        <button class="btn btn-primary" id="bta">All Halls</button>
+        <button class="btn btn-primary" id="bta"><i class="fa fa-list"></i>&nbsp; Hall List</button>
     </a>
     </div>
 </div>
@@ -25,12 +24,12 @@
     <!--ID-->
 
         <form action="/hall/save" data-th-object="${hall}" method="post">
-            <div class="form-row text-right"  data-th-if="${addStatus==false}">
-                <div class="col-md-4">
-                    <label class="label form-row text-right" data-th-for="${id}">Hall ID</label></div>
-                <label class="col-md-8"><label>
+            <div class="form-row text-right mt-4"  data-th-if="${addStatus==false}">
+                <div class="col-md-4 col-sm-6">
+                    <label class="control-label" data-th-for="${id}"><b>Hall ID :</b></label></div>
+                <label class="col-md-4 col-sm-6">
                     <input class=" form-control"  data-th-field="*{id}"type="text" name="first_name">
-                </label></label>
+                </label>
 
             </div>
             <!--hall number-->
@@ -75,12 +74,12 @@
             <!--hall condition-->
             <div class="form-row text-right   ">
                 <div class="col-md-4 col-sm-6">
-                    <label class="control-label  mt-1" data-th-for="${hallCondition}"><b>Hall Name :</b></label>
+                    <label class="control-label  mt-1" data-th-for="${hallCondition}"><b>Hall Condition :</b></label>
                 </div>
-                <div class="col-md-4 col-sm-6">
+                <label class="col-md-4 col-sm-6">
                     <div class="custom-control custom-checkbox custom-control-inline "
                          data-th-each="hallCondition,index : ${hallConditions}">
-                        <input class="custom-control-input gender" required
+                        <input class="custom-control-input hallCondition " required
                                data-th-name="${'hallCondition'}"
                                data-th-value="${hallCondition}"
                                data-th-id="${index.index}+${hallCondition}" type="radio"
@@ -90,7 +89,7 @@
                                data-th-text="${hallCondition.hallCondition}"> radio
                         </label>
                     </div>
-                </div>
+                </label>
             </div>
 
 
@@ -116,7 +115,7 @@
                         data-th-text="${addStatus==true?'Save': 'Update'}"
                         id="submit"></span>
                 </button>
-                <button class="btn btn-danger mt-4 ml-lg-5 mb-lg-4 " type="reset" id="btr">reset</button>
+                <button class="btn btn-danger mt-4 ml-lg-5 mb-lg-4 " type="reset" id="btr"><i class="fa fa-redo" style="font-size: 20px"></i>&nbsp;&nbsp; <span>Reset</span></button>
             </div>
 
 

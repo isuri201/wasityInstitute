@@ -9,19 +9,11 @@
 <!--Nav bar is included-->
 <nav data-th-replace="~{fragments/navBar :: navBarFragment}"></nav>
 
-<div class="row " id="hd">
-    <div class="col-4">
-
-    </div>
-    <div class="col-4">
-        <h1 id="fh1">Hall Management <br> Hall Detail</h1>
-    </div>
-    <div class="col-4">
-
-    </div>
+<div class="card"   id="hd">
+    <div class="card  text-white text-center" id="fh1"> HALL DETAILS</div>
 </div>
 <!--Hall detail-->
-<div class="container-fluid" data-th-fragment="hallDetail">
+<div class="container-fluid" data-th-fragment="hallDetail" id="frm">
     <div class="row"><div class="col-md-8"></div>
         <div class="col-sm-2">
             <a href="/hall/new">
@@ -29,21 +21,21 @@
             </a></div>
         <div class="col-sm-2">
             <a href="/hall">
-                <button class="btn btn-primary mt-1" id="bta">All Halls</button>
+                <button class="btn btn-primary mt-1" id="bta"><i class="fa fa-list"></i>&nbsp; Hall List</button>
             </a></div></div>
     <!--hall id-->
-    <div class="form-row mt-3">
-        <div class="col-md-4 text-right ">
+    <div class="form-row mt-3"data-th-if="${addStatus==false}">
+        <div class="col-md-4 text-right " >
        <label class="control-label" data-th-for="${id}">Id :</label></div>
 
-     <div class="col-md-4" >  <p class="form-control" data-th-text="${hallDetail.id}" style="text-shadow: none;font-family: 'Cambria Math';font-style: normal"></p>
+     <div class="col-md-4" >  <p class="form-control" data-th-text="${hallDetail.id}" style="text-align:left;"></p>
      </div>
     </div>
     <!--number-->
     <div class="form-row">
         <div class="col-md-4 text-right">
         <label  class="control-label" data-th-for="${number}">Hall number :</label></div>
-    <div class="col-md-4" >  <p class="form-control" data-th-text="${hallDetail.number}" style="text-shadow: none;font-family: 'Cambria Math';font-style: normal"></p>
+    <div class="col-md-4" >  <p class="form-control" data-th-text="${hallDetail.number}" style="text-align:left;"></p>
     </div>
     </div>
     <!--Condition-->
@@ -52,7 +44,7 @@
             <label class="control-label" data-th-for="${hallCondition}">Hall Condition :</label>
         </div>
         <div class="col-md-4">
-            <p class="form-control" data-th-text="${hallDetail.hallCondition}" style="text-shadow: none;font-family: 'Cambria Math';font-style: normal"></p>
+            <p class="form-control" data-th-text="${hallDetail.hallCondition}" style="text-align:left;"></p>
         </div>
     </div>
     <!--Count-->
@@ -61,7 +53,7 @@
             <label class="control-label" data-th-for="${seatCount}">Seating count :</label>
         </div>
         <div class="col-md-4">
-            <p class="form-control" data-th-text="${hallDetail.seatCount}" style="text-shadow: none;font-family: 'Cambria Math';font-style: normal"></p>
+            <p class="form-control" data-th-text="${hallDetail.seatCount}" style="text-align:left;"></p>
         </div>
     </div>
     <!--location-->
@@ -70,7 +62,7 @@
             <label class="control-label" data-th-for="${HallLocation}">Hall location :</label>
         </div>
         <div class="col-md-4">
-            <p class="form-control" data-th-text="${hallDetail.HallLocation}" style="text-shadow: none;font-family: 'Cambria Math';font-style: normal"></p>
+            <p class="form-control" data-th-text="${hallDetail.HallLocation}" style="text-align:left;"></p>
         </div>
     </div>
 </div>

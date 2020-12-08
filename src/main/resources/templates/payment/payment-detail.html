@@ -5,88 +5,95 @@
     <meta charset="UTF-8">
     <title>Thymeleaf Springboot </title>
 </head>
-<body>
+<body style="padding-top: 80px">
 <!--Nav bar is included-->
 <nav data-th-replace="~{fragments/navBar :: navBarFragment}"></nav>
 
-<div class="row bg-secondary">
-    <div class="col-4">
-        <a href="/payment/new">
-            <button class="btn btn-info">Make a Payment</button>
-        </a>
-    </div>
-    <div class="col-4">
-        <h1>Payment Management - Payment Details</h1>
-    </div>
-    <div class="col-4">
-        <a href="/payment">
-            <button class="btn btn-primary">view All Payment</button>
-        </a>
-    </div>
+<div class="card"   id="hd">
+    <div class="card  text-white text-center" id="fh1">PAYMENT DETAILS</div>
+
 </div>
+
 <!--Payment detail-->
-<div class="container-fluid" data-th-fragment="paymentDetail">
+<div class="container-fluid" data-th-fragment="paymentDetail" id="frm">
+
+    <div class="row" ><div class="col-md-8"></div>
+        <div class="col-sm-2">
+            <a href="/payment/new">
+                <button class="btn btn-info mt-1 ml-5" id="bta">Create Payment</button>
+            </a></div>
+        <div class="col-sm-2">
+            <a href="/payment">
+                <button class="btn btn-primary mt-1" id="bta"> <i class="fa fa-list"></i>&nbsp; Payment List</button>
+            </a></div></div>
+
     <!--payment id-->
-    <div class="form-payment">
-        <label data-th-for="${id}">Id</label>
+    <form class="mt-4">
+    <div class="form-row ">
+        <div class="col-md-4 text-right">
+       <label data-th-for="${id}">Id :</label></div>
+        <div class="col-md-4">
         <p class="form-control" data-th-text="${paymentDetail.id}"></p>
-    </div>
+    </div></div>
     <!--TranID-->
-    <div class="form-payment">
-        <label data-th-for="${tranId}"></label>
+    <div class="form-row">
+        <div class="col-md-4 text-right">
+            <label data-th-for="${tranId}">TransactionID :</label></div>
+        <div class="col-md-4">
         <p class="form-control" data-th-text="${paymentDetail.tranId}"></p>
+        </div>
     </div>
     <!--discountStatus-->
-    <div class="form-row text-right">
-        <div class="col-md-4">
+    <div class="form-row ">
+        <div class="col-md-4 text-right">
             <label class="control-label" data-th-for="${discountStatus}">Discount Status :</label>
         </div>
-        <div class="col-md-8">
+        <div class="col-md-4">
             <p class="form-control" data-th-text="${paymentDetail.discountStatus}"></p>
         </div>
     </div>
     <!--amount-->
-    <div class="form-row text-right">
-        <div class="col-md-4">
+    <div class="form-row ">
+        <div class="col-md-4 text-right">
             <label class="control-label" data-th-for="${amount}">amount :</label>
         </div>
-        <div class="col-md-8">
+        <div class="col-md-4">
             <p class="form-control" data-th-text="${paymentDetail.amount}"></p>
         </div>
     </div>
     <!--time-->
-    <div class="form-row text-right">
-        <div class="col-md-4">
+    <div class="form-row ">
+        <div class="col-md-4 text-right">
             <label class="control-label" data-th-for="${createdTime}">time :</label>
         </div>
-        <div class="col-md-8">
+        <div class="col-md-4">
             <p class="form-control" data-th-text="${paymentDetail.createdTime}"></p>
         </div>
     </div>
     <!--date-->
-    <div class="form-row text-right">
-        <div class="col-md-4">
+    <div class="form-row ">
+        <div class="col-md-4 text-right">
             <label class="control-label" data-th-for="${createdDate}">date :</label>
         </div>
-        <div class="col-md-8">
+        <div class="col-md-4">
             <p class="form-control" data-th-text="${paymentDetail.createdDate}"></p>
         </div>
     </div>
     <!--createdBy-->
-    <div class="form-row text-right">
-        <div class="col-md-4">
+    <div class="form-row ">
+        <div class="col-md-4 text-right">
             <label class="control-label" data-th-for="${createdBy}">createdBy :</label>
         </div>
-        <div class="col-md-8">
+        <div class="col-md-4">
             <p class="form-control" data-th-text="${paymentDetail.createdBy}"></p>
         </div>
     </div>
-
+    </form>
 </div>
 <!--Button-->
 <div class="form-payment col-md-12 col-sm-12 text-center flex-column ">
     <a href="/payment">
-        <button class="btn btn-success" tabindex="21" type="submit">
+        <button class="btn btn-success" tabindex="21" type="submit" id="bts">
             Back
         </button>
     </a>
