@@ -91,7 +91,7 @@
                 <label class="control-label mt-1" for="dob"><b>Birth date :</b></label>
             </div>
             <label class="col-md-8">
-                <input class="form-control" data-th-field="*{dob}" id="dateOfBirth"
+                <input class="form-control" data-th-field="*{dob}"
                        placeholder="Enter Your B'day"
                        required
                        tabindex="8" type="date" id="dob"/>
@@ -109,7 +109,7 @@
                 <option value="">Please select</option>
                 <option data-th-each="school : ${schools}"
                         data-th-text="${school.name}"
-                        data-th-value="${school}">
+                        data-th-value="${school.id}">
                     Please select
                 </option>
                 </select>

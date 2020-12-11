@@ -24,7 +24,7 @@ public class BatchController{
 
     @GetMapping
     public String findAll(Model model) {
-        model.addAttribute("batchs", batchService.findAll());
+        model.addAttribute("batch", batchService.findAll());
         return "batch/batch";
     }
 
