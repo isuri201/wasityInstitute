@@ -4,15 +4,124 @@
     <meta charset="UTF-8">
     <title>Thymeleaf Springboot </title>
 </head>
-<body>
-<nav th:replace="~{fragments/navBar :: navBarFragment}"></nav>
+<body style="background: beige;color: #111111">
+<div id="main">
+<div class="container-fluid" >
+    <div class="card " id="cv">
+        <div class="card-body  ">
+        <div class="row">
+            <div class="col-md-4">
+                <img data-th-src="${'/img/logos/newlogo.jpg'}" height="150px" width="200px">
 
-<h1> I am index page</h1>
+            </div>
+            <div class="col-md-6 mt-3">
+                <p style="font-size:60px;color: #111111;text-align: center">WASITY INSTITUTE</p>
+                <p style="font-size: large;text-align: center">Gather to Learn</p>
+            </div>
+            <div class="col-md-1"></div>
+            <div class="col-md-1">
+                <span onclick="openNav()" style="font-size: 50px;cursor: pointer;" >&#9776;</span>
+                <div class="sidenav" id="myNav">
+                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                    <a href="#">Home</a>
+                    <a href="/login">Login</a>
+                    <a href="#">Contact info</a>
+
+                </div>
+            </div>
+        </div>
+
+
+</div>
+
+
+    </div>
+<div class="row"[>
+    <div class="col-md-6">
+    <div id="caro" class="carousel slide mt-3" data-ride="carousel">
+
+        <!-- Indicators -->
+        <ul class="carousel-indicators">
+            <li data-target="#caro" data-slide-to="0" class="active"></li>
+            <li data-target="#caro" data-slide-to="1"></li>
+            <li data-target="#caro" data-slide-to="2"></li>
+        </ul>
+        <!-- The slideshow -->
+        <div class="carousel-inner">
+            <div class="carousel-item active" >
+                <img data-th-src="${'/img/class.jpg'}" width="900" height="500">
+            </div>
+            <div class="carousel-item" >
+                <img data-th-src="${'/img/trip.jpg'}" width="900" height="500" >
+            </div>
+            <div class="carousel-item" >
+                <img data-th-src="${'/img/cafteria.jpg'}" width="900" height="500">
+            </div>
+        </div>
+
+        <!-- Left and right controls -->
+        <a class="carousel-control-prev" href="#caro" data-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#caro" data-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </a>
+
+    </div>
+
+    </div>
+    <div class="col-md-6">
+        <div class="card mt-4 shadow" >
+            <div class="card-header  border border-info bg-info shadow ">
+                <h1 id="h1" ><b>OUR VISION</b> </h1>
+            </div>
+            <div class="card-body  border border-info ">
+                <p id="p1">Our vision is to become the best educational institute by providing<br> education for the students in our best</p>
+            </div>
+        </div>
+
+        <div class="card mt-4 shadow " >
+            <div class="card-header  border border-danger bg-danger shadow ">
+                <h1  id="h2"><b>OUR MISSION</b></h1>
+            </div>
+            <div class="card-body  border border-danger">
+                <p id="p1">We prepare our students for sucess.We inspire the students<br>to become productive citizen,leaders to our country and global</p>
+            </div>
+        </div>
+
+
+        <div class="card mt-4 shadow " >
+            <div class="card-header border border-warning bg-warning shadow ">
+                <h1  id="h2"><b>ABOUT US</b></h1>
+            </div>
+            <div class="card-body border border-warning">
+                <p id="p1">Wasity educational institute is a leading institute situated at Kiribathgoda.<br>We are giving the highest knowledge through leading lecturers to our students<br>and lending hands for them to get through their Advancced Level exams</p>
+            </div>
+        </div>
+
+
+
+
+
+    </div>
+</div>
+
+<div class="row bg-dark">
+    <div class="col-md-3">
+        <b>Contact Us:</b><br>
+        <b>0112488493</b><br>
+        <b>0757727592</b>
+    </div>
+</div>
+    </div>
+
+
+
 
 <!--footer include-->
 <footer th:replace="~{fragments/footer :: footerFragment}"></footer>
 <!--script include-->
 <script th:replace="~{fragments/script :: scriptFragment}"></script>
-
+</div>
 </body>
 </html>
