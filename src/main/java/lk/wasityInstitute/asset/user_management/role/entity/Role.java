@@ -1,14 +1,15 @@
-package lk.wasityInstitute.asset.userManagement.entity;
+package lk.wasityInstitute.asset.user_management.role.entity;
 
+
+import lk.wasityInstitute.asset.commonAsset.model.Enum.LiveDead;
+import lk.wasityInstitute.asset.user_management.user.entity.User;
 import lk.wasityInstitute.util.audit.AuditEntity;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.List;
 
@@ -23,10 +24,9 @@ public class Role extends AuditEntity {
     @Column( unique = true )
     private String roleName;
 
+    @Enumerated(EnumType.STRING)
+    private LiveDead liveDead;
+
     @ManyToMany(mappedBy = "roles")
     private List< User > users;
-
-    public String getName() {
-        return null;
-    }
 }

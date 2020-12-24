@@ -1,8 +1,9 @@
-package lk.wasityInstitute.asset.userManagement.service;
+package lk.wasityInstitute.asset.user_management.role.service;
 
 
-import lk.wasityInstitute.asset.userManagement.dao.RoleDao;
-import lk.wasityInstitute.asset.userManagement.entity.Role;
+import lk.wasityInstitute.asset.commonAsset.model.Enum.LiveDead;
+import lk.wasityInstitute.asset.user_management.role.dao.RoleDao;
+import lk.wasityInstitute.asset.user_management.role.entity.Role;
 import lk.wasityInstitute.util.interfaces.AbstractService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.*;
@@ -14,7 +15,7 @@ import java.util.List;
 
 @Service
 @CacheConfig( cacheNames = {"role"} ) // tells Spring where to store cache for this class
-public class RoleService implements AbstractService< Role, Integer > {
+public class RoleService implements AbstractService<Role, Integer > {
     private final RoleDao roleDao;
 
     @Autowired
@@ -37,12 +38,17 @@ public class RoleService implements AbstractService< Role, Integer > {
             put = {@CachePut( value = "role", key = "#role.id" )} )
     public Role persist(Role role) {
         role.setRoleName(role.getRoleName().toUpperCase());
+        if ( role.getId()==null ){
+            role.setLiveDead(LiveDead.ACTIVE);
+        }
         return roleDao.save(role);
     }
 
     @CacheEvict( allEntries = true )
     public boolean delete(Integer id) {
-        roleDao.deleteById(id);
+        Role role =roleDao.getOne(id);
+        role.setLiveDead(LiveDead.STOP);
+        roleDao.save(role);
         return true;
     }
 
