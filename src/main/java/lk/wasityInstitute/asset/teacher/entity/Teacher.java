@@ -3,6 +3,7 @@ package lk.wasityInstitute.asset.teacher.entity;
 import com.fasterxml.jackson.annotation.JsonFilter;
 import lk.wasityInstitute.asset.batch.entity.Batch;
 import lk.wasityInstitute.asset.commonAsset.model.Enum.Gender;
+import lk.wasityInstitute.asset.commonAsset.model.Enum.LiveDead;
 import lk.wasityInstitute.asset.subject.entity.Subject;
 import lk.wasityInstitute.util.audit.AuditEntity;
 import lombok.AllArgsConstructor;
@@ -31,6 +32,9 @@ public class Teacher extends AuditEntity {
 
     @Enumerated(EnumType.STRING)
     private Gender gender;
+
+    @Enumerated(EnumType.STRING)
+    private LiveDead liveDead;
 
     @DateTimeFormat( pattern = "yyyy-MM-dd" )
     private LocalDate dateOfBirth;
