@@ -2,6 +2,7 @@ package lk.wasityInstitute.asset.timeTable.service;
 
 
 
+import lk.wasityInstitute.asset.commonAsset.model.Enum.LiveDead;
 import lk.wasityInstitute.asset.timeTable.dao.TimeTableDao;
 import lk.wasityInstitute.asset.timeTable.entity.TimeTable;
 import lk.wasityInstitute.util.interfaces.AbstractService;
@@ -26,11 +27,15 @@ public class TimeTableService implements AbstractService< TimeTable, Integer> {
     }
 
     public TimeTable persist(TimeTable timeTable) {
+        if(timeTable.getId()==null){
+            timeTable.setLiveDead(LiveDead.ACTIVE);}
         return timeTableDao.save(timeTable);
     }
 
     public boolean delete(Integer id) {
-        timeTableDao.deleteById(id);
+        TimeTable timeTable =  timeTableDao.getOne(id);
+        timeTable.setLiveDead(LiveDead.STOP);
+        timeTableDao.save(timeTable);
         return false;
     }
 
