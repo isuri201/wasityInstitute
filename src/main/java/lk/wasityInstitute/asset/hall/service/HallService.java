@@ -1,7 +1,9 @@
 package lk.wasityInstitute.asset.hall.service;
 
 
+import lk.wasityInstitute.asset.commonAsset.model.Enum.LiveDead;
 import lk.wasityInstitute.asset.hall.dao.HallDao;
+import lk.wasityInstitute.asset.hall.entity.Hall;
 import lk.wasityInstitute.asset.hall.entity.Hall;
 import lk.wasityInstitute.util.interfaces.AbstractService;
 import org.springframework.stereotype.Service;
@@ -25,11 +27,15 @@ public class HallService implements AbstractService< Hall, Integer> {
     }
 
     public Hall persist(Hall hall) {
+        if(hall.getId()==null){
+            hall.setLiveDead(LiveDead.ACTIVE);}
         return hallDao.save(hall);
     }
 
     public boolean delete(Integer id) {
-        hallDao.deleteById(id);
+        Hall hall =  hallDao.getOne(id);
+        hall.setLiveDead(LiveDead.STOP);
+        hallDao.save(hall);
         return false;
     }
 
