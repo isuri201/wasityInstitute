@@ -1,6 +1,7 @@
-package lk.wasityInstitute.asset.userManagement;
+package lk.wasityInstitute.asset.user_management;
 
-import lk.wasityInstitute.asset.userManagement.entity.User;
+
+import lk.wasityInstitute.asset.user_management.user.entity.User;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -22,7 +23,7 @@ public class CustomerUserDetails implements UserDetails {
 
     @Override
     @Transactional(readOnly = true)
-    public Collection<? extends GrantedAuthority > getAuthorities() {
+    public Collection<? extends GrantedAuthority> getAuthorities() {
         return user.getRoles()
                 .stream()
                 .map(role -> new SimpleGrantedAuthority("ROLE_" + role.getRoleName().toUpperCase()))

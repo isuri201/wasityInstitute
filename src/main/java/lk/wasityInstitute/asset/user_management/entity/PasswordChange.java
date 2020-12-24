@@ -1,4 +1,4 @@
-package lk.wasityInstitute.asset.userManagement.entity;
+package lk.wasityInstitute.asset.user_management.entity;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
