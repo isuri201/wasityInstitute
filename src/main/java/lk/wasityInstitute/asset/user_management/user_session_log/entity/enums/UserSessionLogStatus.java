@@ -1,4 +1,4 @@
-package lk.wasityInstitute.asset.userManagement.entity.Enum;
+package lk.wasityInstitute.asset.user_management.user_session_log.entity.enums;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
