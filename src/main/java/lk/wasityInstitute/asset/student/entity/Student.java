@@ -3,6 +3,7 @@ package lk.wasityInstitute.asset.student.entity;
 
 import com.fasterxml.jackson.annotation.JsonFilter;
 import lk.wasityInstitute.asset.batch.entity.Batch;
+import lk.wasityInstitute.asset.commonAsset.model.Enum.LiveDead;
 import lk.wasityInstitute.asset.school.entity.School;
 import lk.wasityInstitute.asset.subject.entity.Subject;
 import lk.wasityInstitute.util.audit.AuditEntity;
@@ -44,6 +45,9 @@ public class Student extends AuditEntity {
     private String mobile;
 
     private String home;
+
+    @Enumerated(EnumType.STRING)
+    private LiveDead liveDead;
 
     // TODO: 6/13/2020  add the student picture
     /*One particular batch*/
