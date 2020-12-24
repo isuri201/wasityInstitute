@@ -1,6 +1,7 @@
 package lk.wasityInstitute.asset.school.entity;
 
 
+import lk.wasityInstitute.asset.commonAsset.model.Enum.LiveDead;
 import lombok.*;
 
 import javax.persistence.*;
@@ -20,5 +21,7 @@ public class School {
     @Column(nullable = false, length = 45, unique = true)
     private String name;
 
+    @Enumerated(EnumType.STRING)
+    private LiveDead liveDead;
 
 }
