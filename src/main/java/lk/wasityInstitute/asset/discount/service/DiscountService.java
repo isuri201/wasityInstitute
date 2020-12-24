@@ -1,7 +1,9 @@
 package lk.wasityInstitute.asset.discount.service;
 
 
+import lk.wasityInstitute.asset.commonAsset.model.Enum.LiveDead;
 import lk.wasityInstitute.asset.discount.dao.DiscountDao;
+import lk.wasityInstitute.asset.discount.entity.Discount;
 import lk.wasityInstitute.asset.discount.entity.Discount;
 import lk.wasityInstitute.util.interfaces.AbstractService;
 import org.springframework.data.domain.Example;
@@ -27,11 +29,15 @@ public class DiscountService implements AbstractService< Discount,Integer> {
     }
 
     public Discount persist(Discount discount) {
+        if(discount.getId()==null){
+            discount.setLiveDead(LiveDead.ACTIVE);}
         return discountDao.save(discount);
     }
 
     public boolean delete(Integer id) {
-        discountDao.deleteById(id);
+        Discount discount =  discountDao.getOne(id);
+        discount.setLiveDead(LiveDead.STOP);
+        discountDao.save(discount);
         return false;
     }
 
