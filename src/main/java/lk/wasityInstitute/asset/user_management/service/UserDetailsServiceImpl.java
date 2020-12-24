@@ -1,8 +1,9 @@
 package lk.wasityInstitute.asset.user_management.service;
 
-import lk.samarasingher_super.asset.user_management.CustomerUserDetails;
-import lk.samarasingher_super.asset.user_management.user.dao.UserDao;
-import lk.samarasingher_super.asset.user_management.user.entity.User;
+
+import lk.wasityInstitute.asset.user_management.CustomerUserDetails;
+import lk.wasityInstitute.asset.user_management.user.dao.UserDao;
+import lk.wasityInstitute.asset.user_management.user.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

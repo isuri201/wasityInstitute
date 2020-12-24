@@ -1,8 +1,9 @@
 package lk.wasityInstitute.asset.commonAsset.controller;
 
-import lk.wasityInstitute.asset.userManagement.entity.PasswordChange;
-import lk.wasityInstitute.asset.userManagement.entity.User;
-import lk.wasityInstitute.asset.userManagement.service.UserService;
+
+import lk.wasityInstitute.asset.user_management.entity.PasswordChange;
+import lk.wasityInstitute.asset.user_management.user.entity.User;
+import lk.wasityInstitute.asset.user_management.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
