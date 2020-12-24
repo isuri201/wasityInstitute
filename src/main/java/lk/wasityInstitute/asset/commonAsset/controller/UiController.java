@@ -28,6 +28,14 @@ public class UiController {
   @GetMapping( value = {"/home", "/mainWindow"} )
   public String getHome(Model model) {
     //do some logic here if you want something to be done whenever
+     return "home";
+    }
+@GetMapping(value = {"/", "/info"})
+    public String info() {
+        return "info";}
+    @GetMapping(value = {"/home", "/mainWindow"})
+    public String getHome(Model model) {
+        //do some logic here if you want something to be done whenever
         /*User authUser = userService.findByUserName(SecurityContextHolder.getContext().getAuthentication().getName());
         Set<Petition> petitionSet = new HashSet<>();
         minutePetitionService

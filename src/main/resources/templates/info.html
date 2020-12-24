@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<head th:replace="~{fragments/header :: headerFragment}">
+    <meta charset="UTF-8">
+    <title>Thymeleaf Springboot </title>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="card " id="cv">
+        <div class="card-body  ">
+            <div class="row">
+                <div class="col-md-4">
+                    <img data-th-src="${'/img/logos/newlogo.jpg'}" height="150px" width="200px">
+                </div>
+                <div class="col-md-6 mt-3">
+                    <p style="font-size:60px;color: #111111;text-align: center">WASITY INSTITUTE</p>
+                    <p style="font-size: large;text-align: center">Gather to Learn</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<!--footer include-->
+<footer th:replace="~{fragments/footer :: footerFragment}"></footer>
+<!--script include-->
+<script th:replace="~{fragments/script :: scriptFragment}"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

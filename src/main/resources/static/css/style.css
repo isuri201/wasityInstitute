@@ -84,11 +84,11 @@ font-weight: 900;
     text-align: center;
     text-shadow: 2px 2px 5px red;
 }
-div{
-    color: rgb(245, 248, 250);
+/*div{*/
+/*    color: rgb(245, 248, 250);*/
 
-    
-}
+/*    */
+/*}*/
 
 .input-group-text{
     height: 42px;
