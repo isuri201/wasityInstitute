@@ -24,7 +24,7 @@ public class UiController {
         return "index";
     }
 
-    @GetMapping(value = {"/", "/info"})
+    @GetMapping(value = "/info")
     public String info() {
         return "info";
     }
