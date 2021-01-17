@@ -8,6 +8,8 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.session.SessionRegistry;
 import org.springframework.security.core.session.SessionRegistryImpl;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -73,62 +75,62 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             http.authorizeRequests().antMatchers("/").permitAll();
         // For developing easy to give permission all lin
 
-/*
-        http
-                .authorizeRequests(
-                        authorizeRequests ->
-                                authorizeRequests
-                                        //Anytime users can access without login
-                                        //to see actuator details
-                                        .antMatchers(ALL_PERMIT_URL).permitAll()
-                                        //this is used the normal admin to give access every url mapping
-                                        .antMatchers("/employee").hasRole("ADMIN")
-                                        //Need to login for access those are
-                                        */
-/*   .antMatchers("/employee/**").hasRole("ADMIN")
-                                           .antMatchers("/employee1/**").hasRole("MANAGER")
-                                           .antMatchers("/user/**").hasRole("ADMIN")
-                                           .antMatchers("/petition/**").hasRole("ADMIN")
-                                           .antMatchers("/minutePetition/**").hasRole("MANAGER")
-                                           .antMatchers("/invoiceProcess/add").hasRole("CASHIER")*//*
 
-                                        .anyRequest()
-                                        .authenticated())
-                // Login form
-                .formLogin(
-                        formLogin ->
-                                formLogin
-                                        .loginPage("/login")
-                                        .loginProcessingUrl("/login")
-                                        //Username and password for validation
-                                        .usernameParameter("username")
-                                        .passwordParameter("password")
-                                        .successHandler(customAuthenticationSuccessHandler())
-                                        .failureForwardUrl("/login")
-                          )
-                //Logout controlling
-                .logout(
-                        logout ->
-                                logout
-                                        .logoutUrl("/logout")
-                                        .logoutSuccessHandler(customLogoutSuccessHandler())
-                                        .deleteCookies("JSESSIONID")
-                                        .invalidateHttpSession(true)
-                                        .clearAuthentication(true))
-                //session management
-                .sessionManagement(
-                        sessionManagement ->
-                                sessionManagement
-                                        .sessionFixation().migrateSession()
-                                        .sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED)
-                                        .invalidSessionUrl("/login")
-                                        .maximumSessions(1)
-                                        .expiredUrl("/l")
-                                        .sessionRegistry(sessionRegistry()))
-                //Cross site disable
-                .csrf(AbstractHttpConfigurer::disable)
-                .exceptionHandling();
-*/
+//        http
+//                .authorizeRequests(
+//                        authorizeRequests ->
+//                                authorizeRequests
+//                                        //Anytime users can access without login
+//                                        //to see actuator details
+//                                        .antMatchers(ALL_PERMIT_URL).permitAll()
+//                                        //this is used the normal admin to give access every url mapping
+//                                        .antMatchers("/employee").hasRole("ADMIN")
+//                                        //Need to login for access those are
+//
+//   .antMatchers("/employee/**").hasRole("ADMIN")
+//                                           .antMatchers("/employee1/**").hasRole("MANAGER")
+//                                           .antMatchers("/user/**").hasRole("ADMIN")
+//                                           .antMatchers("/petition/**").hasRole("ADMIN")
+//                                           .antMatchers("/minutePetition/**").hasRole("MANAGER")
+//                                           .antMatchers("/invoiceProcess/add").hasRole("CASHIER")
+//
+//                                        .anyRequest()
+//                                        .authenticated())
+//                // Login form
+//                .formLogin(
+//                        formLogin ->
+//                                formLogin
+//                                        .loginPage("/login")
+//                                        .loginProcessingUrl("/login")
+//                                        //Username and password for validation
+//                                        .usernameParameter("username")
+//                                        .passwordParameter("password")
+//                                        .successHandler(customAuthenticationSuccessHandler())
+//                                        .failureForwardUrl("/login")
+//                          )
+//                //Logout controlling
+//                .logout(
+//                        logout ->
+//                                logout
+//                                        .logoutUrl("/logout")
+//                                        .logoutSuccessHandler(customLogoutSuccessHandler())
+//                                        .deleteCookies("JSESSIONID")
+//                                        .invalidateHttpSession(true)
+//                                        .clearAuthentication(true))
+//                //session management
+//                .sessionManagement(
+//                        sessionManagement ->
+//                                sessionManagement
+//                                        .sessionFixation().migrateSession()
+//                                        .sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED)
+//                                        .invalidSessionUrl("/login")
+//                                        .maximumSessions(1)
+//                                        .expiredUrl("/l")
+//                                        .sessionRegistry(sessionRegistry()))
+//                //Cross site disable
+//                .csrf(AbstractHttpConfigurer::disable)
+//                .exceptionHandling();
+
     }
 }
 

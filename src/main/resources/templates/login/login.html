@@ -67,13 +67,13 @@
                             <a class="link" href="/passwordChange"> change the password</a>
                         </div>
                         <div class="container-fluid " th:if="${param.error}">
-                            <p class="bg-white text-capitalize text-danger text-lg-center">Invalid username or
+                            <p class="bg-white text-capitalize text-danger text-lg-center" id="errorMessage" th:text="${err}">Invalid username or
                                 password. </p>
                         </div>
-                        <div class="container-fluid ">
-                            <p id="errorMessage" th:text="${err}"
-                               class="bg-white text-capitalize text-danger text-lg-center"></p>
-                        </div>
+<!--                        <div class="container-fluid ">-->
+<!--                            <p id="errorMessage" th:text="${err}"-->
+<!--                               class="bg-white text-capitalize text-danger text-lg-center"></p>-->
+<!--                        </div>-->
                     </form>
 
                 </div>

@@ -64,7 +64,7 @@
     padding: 16px;
 }
 /*contact info*/
-#cd1{
+.card.contact{
     border-color:#1acc8d ;
     border-width: medium;
     /*min-height: 118px;*/
