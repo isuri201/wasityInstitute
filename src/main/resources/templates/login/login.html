@@ -1,95 +1,88 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="~{fragments/header :: headerFragment}">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<head th:replace="~{fragments/header :: headerFragment}" >
 
 
-    <meta charset="UTF-8">
-    <title>Thymeleaf Springboot </title>
+  <meta charset="UTF-8" >
+  <title >Thymeleaf Springboot </title >
 
-</head>
+</head >
 
 
 <body id="loginBack" >
-<div class="container-fluid" id="loginPage">
-    <img src="../img/logos/newlogo.jpg" style="width:200px;height:150px;" id="logo" class="mt-4">
-    <p id="lgk">Wasity Institute<br>Student Management
-        System<br>LOGIN</p>
+<div class="container-fluid" id="loginPage" >
+  <img src="../img/logos/newlogo.jpg" style="width:200px;height:150px;" id="logo" class="mt-4" >
+  <p id="lgk" >Wasity Institute<br >Student Management
+               System<br >LOGIN</p >
 
 
-    <hr>
-    <div class="modal-dialog text-center">
-        <div class="col-sm-9 profile-image ">
-            <div class="modal-content" id="mod">
+  <hr >
+  <div class="modal-dialog text-center" >
+    <div class="col-sm-9 profile-image " >
+      <div class="modal-content" id="mod" >
 
-                <div class="col-12 user-img">
-                    <img th:src="@{img/user.png}"></div>
+        <div class="col-12 user-img" >
+          <img th:src="@{img/user.png}" ></div >
 
-                <div class="col-12 form-input">
+        <div class="col-12 form-input" >
 
-                    <form class="was-validated" th:action="${'/login'}" method="post" >
+          <form class="was-validated" th:action="${'/login'}" method="post" >
 
-                        <div class="form-group">
-                            <div style='text-align: left;color: white;' id="user">User Name:</div>
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class=""><i class='fa fa-user' style='font-size:24px;color: white;'> </i></span>
+            <div class="form-group" >
+              <div style='text-align: left;color: white;' id="user" >User Name:</div >
+              <div class="input-group" >
+                <div class="input-group-prepend" >
+                  <span class="" ><i class='fa fa-user' style='font-size:24px;color: white;' > </i ></span >
 
-                                    <input type="text" id="username" th:name="${'username'}" placeholder="username"
-                                           class="input-form" required="required"></div>
-                            </div>
-
-
-                        </div>
-                        <div class="form-group">
-                            <div style='text-align: left;color: white;' id="pw">Password:</div>
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class=""><i class='fa fa-lock' style='font-size:24px;color: white;'></i></span>
-                                    <input type="password" id="inputPassword" th:name="${'password'}"
-                                           placeholder="password"
-                                           class="input-form" required="required">
-
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="form-group form-check form-inline " style='margin-top: 6px;'>
-
-                                    <input class="form-check-input form-inline" type="checkbox">
-                                    <label class="form-check-label form-inline ">Remember me
-                                    </label>
-                                </div>
-                            </div>
-
-                            <button type="sumbit" class="btn btn-success" id="btn">Login</button>
-                            <br>
+                  <input type="text" id="username" th:name="${'username'}" placeholder="username"
+                         class="input-form" required="required" ></div >
+              </div >
 
 
-                            <a class="link" href="/passwordChange"> change the password</a>
-                        </div>
-                        <div class="container-fluid " th:if="${param.error}">
-                            <p class="bg-white text-capitalize text-danger text-lg-center" id="errorMessage" th:text="${err}">Invalid username or
-                                password. </p>
-                        </div>
-<!--                        <div class="container-fluid ">-->
-<!--                            <p id="errorMessage" th:text="${err}"-->
-<!--                               class="bg-white text-capitalize text-danger text-lg-center"></p>-->
-<!--                        </div>-->
-                    </form>
+            </div >
+            <div class="form-group" >
+              <div style='text-align: left;color: white;' id="pw" >Password:</div >
+              <div class="input-group" >
+                <div class="input-group-prepend" >
+                  <span class="" ><i class='fa fa-lock' style='font-size:24px;color: white;' ></i ></span >
+                  <input type="password" id="inputPassword" th:name="${'password'}"
+                         placeholder="password"
+                         class="input-form" required="required" >
 
-                </div>
-            </div>
+                </div >
+              </div >
+              <div class="row" >
+                <div class="form-group form-check form-inline " style='margin-top: 6px;' >
+                 <input class="form-check-input form-inline" name="remember-me" type="checkbox" >
+                      <label class="form-check-label form-inline " >
+                      Remember me
+                  </label >
+                </div >
+              </div >
 
-        </div>
-    </div>
+              <button type="sumbit" class="btn btn-success" id="btn" >Login</button >
+              <br >
 
-</div>
-</div>
+            </div >
+              <div class="container-fluid " data-th-if="${param.error}">
+                  <p class="bg-white text-capitalize text-danger text-lg-center">
+                      Invalid username or password. </p>
+              </div>
+          </form >
+
+        </div >
+      </div >
+
+    </div >
+  </div >
+
+</div >
 <!--footer include-->
-<footer th:replace="~{fragments/footer :: footerFragment}"></footer>
+<div  data-th-replace="~{fragments/footer :: footerFragment}" ></div >
 <!--script include-->
-<script th:replace="~{fragments/script :: scriptFragment}"></script>
+<div  data-th-replace="~{fragments/script :: scriptFragment}" ></div >
 
-</body>
+</body >
 
 
-</html>
+</html >
