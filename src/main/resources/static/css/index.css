@@ -63,3 +63,105 @@
     transition: margin-left .5s;
     padding: 16px;
 }
+/*contact info*/
+.card.contact{
+    border-color:#1acc8d ;
+    border-width: medium;
+    /*min-height: 118px;*/
+    /*margin-top: 40px;*/
+    /*margin-bottom: 20px;*/
+
+}
+.icon-1{
+    font-size: 40px;
+    background: #1acc8d;
+    position: absolute;
+    top: -20px;
+    border-radius: 80px;
+    /*width: 40px;*/
+    /*height: 40px;*/
+    color: white;
+    left: 45%;
+    /*transform: translateX(-50%);*/
+    margin-inside: 4px 4px 4px;
+    box-sizing: border-box;
+    padding-left: 10px;
+    padding-right: 10px;
+    ;
+}
+.icon-2 {
+
+    font-size: 40px;
+    background: #1acc8d;
+    position: absolute;
+    color: white;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 80px;
+    position: absolute;
+    top: -20px;
+    left: 45%;
+
+}
+.icon-3{
+    font-size: 45px;
+    background: #1acc8d;
+    position: absolute;
+    color: white;
+    top: -20px;
+    left: 45%;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 80px;
+    /*width: 150px;*/
+    height: 40px;
+
+}
+#fb{
+    font-size: 40px;
+    background: white;
+    border-radius: 80px;
+    color:#3b5998;
+
+}
+#twi{
+    font-size: 40px;
+    color: #00acee;
+
+}
+.icon-4 {
+    font-size: 45px;
+
+    position: absolute;
+    color: white;
+    top: -20px;
+    left: 45%;
+    border-radius: 80px;
+    background:#1acc8d;
+
+}
+#par{
+    font-size: 60px;
+    color: orangered;
+    text-align: center;
+    animation-name: fadeOut;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+    }
+
+
+@keyframes fadeOut {
+    from {color: red;}
+    to {color: yellow;}}
+
+.para1{
+    font-size:40px ;
+    animation-name:pulse;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+
+}
+@keyframes pulse {
+    from {color: darkblue;}
+    to {color: orangered;}
+}

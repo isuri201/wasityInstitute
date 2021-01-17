@@ -8,10 +8,10 @@
 <nav class="navbar navbar-expand-sm   fixed-top " th:fragment="navBarFragment" style="opacity: 0.9;background-color: #111111">
     <a class="navbar-brand" href="#">
 
-        <img data-th-src="${'/img/logos/newlogo.jpg'}" alt="logo" style="width:50px;height: 50px;">
+        <img data-th-src="${'/img/logos/newlogo.jpg'}" alt="logo" class="" style="width:50px;height: 50px;">
     </a>
 <div >
-    <a href="#" class="previous round" style=" color: wheat;font-size:x-large;"><i class="fa fa-arrow-circle-left"></i></a>
+    <a href="#" class="previous round" style=" color: wheat;font-size:x-large;background-color: transparent;"><i class="fa fa-arrow-circle-left"></i></a>
     <a href="#" class="next round ml-3" style="color: wheat;font-size:x-large;"><i class="fa fa-arrow-circle-right"></i></a>
 </div>
 
@@ -57,9 +57,10 @@
         <button type="submit" class="btn btn-lg"><i class="fa fa-search mr-lg-5" style="color: white"></i></button>
     </form>
 
-    <a href="#" style="color: white;background-color:cadetblue;border-radius: 3px;font-size: large" class="ml-lg-5">logout</a>
+    <a href="#" style="color: white;border-radius: 3px;font-size: large" class="ml-lg-5"><i class="fa fa-sign-out-alt mr-2" style="color: white;font-size: larger"></i>log_Out</a>
 
 </nav>
+
 
 
 

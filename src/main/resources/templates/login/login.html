@@ -11,7 +11,7 @@
 
 <body id="loginBack" >
 <div class="container-fluid" id="loginPage">
-    <img src="../img/logos/newlogo.jpg" style="width:50px;height:50px;" id="logo" class="alert-success">
+    <img src="../img/logos/newlogo.jpg" style="width:200px;height:150px;" id="logo" class="mt-4">
     <p id="lgk">Wasity Institute<br>Student Management
         System<br>LOGIN</p>
 
@@ -60,20 +60,20 @@
                                 </div>
                             </div>
 
-                            <button type="sumbit" class="btn btn-success">Login</button>
+                            <button type="sumbit" class="btn btn-success" id="btn">Login</button>
                             <br>
 
 
-                            <a class="link" href="">Did you forget your details?</a>
+                            <a class="link" href="/passwordChange"> change the password</a>
                         </div>
                         <div class="container-fluid " th:if="${param.error}">
-                            <p class="bg-white text-capitalize text-danger text-lg-center">Invalid username or
+                            <p class="bg-white text-capitalize text-danger text-lg-center" id="errorMessage" th:text="${err}">Invalid username or
                                 password. </p>
                         </div>
-                        <div class="container-fluid ">
-                            <p id="errorMessage" th:text="${err}"
-                               class="bg-white text-capitalize text-danger text-lg-center"></p>
-                        </div>
+<!--                        <div class="container-fluid ">-->
+<!--                            <p id="errorMessage" th:text="${err}"-->
+<!--                               class="bg-white text-capitalize text-danger text-lg-center"></p>-->
+<!--                        </div>-->
                     </form>
 
                 </div>
