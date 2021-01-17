@@ -1,7 +1,9 @@
 package lk.wasityInstitute.asset.student.service;
 
 
+import lk.wasityInstitute.asset.commonAsset.model.Enum.LiveDead;
 import lk.wasityInstitute.asset.student.dao.StudentDao;
+import lk.wasityInstitute.asset.student.entity.Student;
 import lk.wasityInstitute.asset.student.entity.Student;
 import lk.wasityInstitute.util.interfaces.AbstractService;
 import org.springframework.stereotype.Service;
@@ -25,11 +27,15 @@ public class StudentService implements AbstractService< Student, Integer > {
     }
 
     public Student persist(Student student) {
+        if(student.getId()==null){
+            student.setLiveDead(LiveDead.ACTIVE);}
         return studentDao.save(student);
     }
 
     public boolean delete(Integer id) {
-        studentDao.deleteById(id);
+        Student student =  studentDao.getOne(id);
+        student.setLiveDead(LiveDead.STOP);
+        studentDao.save(student);
         return false;
     }
 

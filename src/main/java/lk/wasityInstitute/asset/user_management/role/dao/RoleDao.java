@@ -1,7 +1,7 @@
-package lk.wasityInstitute.asset.userManagement.dao;
+package lk.wasityInstitute.asset.user_management.role.dao;
 
 
-import lk.wasityInstitute.asset.userManagement.entity.Role;
+import lk.wasityInstitute.asset.user_management.role.entity.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

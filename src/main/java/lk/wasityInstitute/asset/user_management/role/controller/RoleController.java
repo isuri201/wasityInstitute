@@ -1,8 +1,9 @@
-package lk.wasityInstitute.asset.userManagement.controller;
+package lk.wasityInstitute.asset.user_management.role.controller;
 
 
-import lk.wasityInstitute.asset.userManagement.entity.Role;
-import lk.wasityInstitute.asset.userManagement.service.RoleService;
+import lk.wasityInstitute.asset.commonAsset.model.Enum.LiveDead;
+import lk.wasityInstitute.asset.user_management.role.entity.Role;
+import lk.wasityInstitute.asset.user_management.role.service.RoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
+import java.util.stream.Collectors;
 
 @Controller
 @RequestMapping( "/role" )
@@ -29,7 +31,8 @@ public class RoleController {
      * */
     @RequestMapping
     public String rolePage(Model model) {
-        model.addAttribute("roles", roleService.findAll());
+        model.addAttribute("roles", roleService.findAll().stream().filter(x-> LiveDead.ACTIVE.equals(x.getLiveDead()))
+            .collect(Collectors.toList()));
         return "role/role";
     }
 

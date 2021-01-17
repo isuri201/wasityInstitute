@@ -2,6 +2,7 @@ package lk.wasityInstitute.asset.batch.entity;
 
 
 import com.fasterxml.jackson.annotation.JsonFilter;
+import lk.wasityInstitute.asset.commonAsset.model.Enum.LiveDead;
 import lk.wasityInstitute.asset.hall.entity.Hall;
 import lk.wasityInstitute.asset.student.entity.Student;
 import lk.wasityInstitute.asset.subject.entity.Subject;
@@ -27,6 +28,9 @@ public class Batch extends AuditEntity {
     private String year;
     private String subjectName;
     private String teacherName;
+
+    @Enumerated(EnumType.STRING)
+    private LiveDead liveDead;
 
     @ManyToOne
     private Subject subject;

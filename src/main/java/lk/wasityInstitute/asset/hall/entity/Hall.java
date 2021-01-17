@@ -3,6 +3,7 @@ package lk.wasityInstitute.asset.hall.entity;
 
 import com.fasterxml.jackson.annotation.JsonFilter;
 import lk.wasityInstitute.asset.batch.entity.Batch;
+import lk.wasityInstitute.asset.commonAsset.model.Enum.LiveDead;
 import lk.wasityInstitute.asset.hall.entity.enums.HallCondition;
 import lk.wasityInstitute.util.audit.AuditEntity;
 import lombok.AllArgsConstructor;
@@ -30,6 +31,9 @@ public class Hall extends AuditEntity {
 
     @Enumerated( EnumType.STRING)
     private HallCondition hallCondition;
+
+    @Enumerated(EnumType.STRING)
+    private LiveDead liveDead;
 
     @ManyToMany(mappedBy = "halls")
     private List< Batch > batches;

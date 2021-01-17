@@ -3,6 +3,8 @@ package lk.wasityInstitute.asset.batch.service;
 
 import lk.wasityInstitute.asset.batch.dao.BatchDao;
 import lk.wasityInstitute.asset.batch.entity.Batch;
+import lk.wasityInstitute.asset.commonAsset.model.Enum.LiveDead;
+import lk.wasityInstitute.asset.batch.entity.Batch;
 import lk.wasityInstitute.util.interfaces.AbstractService;
 import org.springframework.stereotype.Service;
 
@@ -25,11 +27,15 @@ public class BatchService implements AbstractService< Batch, Integer> {
     }
 
     public Batch persist(Batch batch) {
+        if(batch.getId()==null){
+            batch.setLiveDead(LiveDead.ACTIVE);}
         return batchDao.save(batch);
     }
 
     public boolean delete(Integer id) {
-        batchDao.deleteById(id);
+        Batch batch =  batchDao.getOne(id);
+        batch.setLiveDead(LiveDead.STOP);
+        batchDao.save(batch);
         return false;
     }
 

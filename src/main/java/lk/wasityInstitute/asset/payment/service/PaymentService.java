@@ -2,7 +2,9 @@ package lk.wasityInstitute.asset.payment.service;
 
 
 
+import lk.wasityInstitute.asset.commonAsset.model.Enum.LiveDead;
 import lk.wasityInstitute.asset.payment.dao.PaymentDao;
+import lk.wasityInstitute.asset.payment.entity.Payment;
 import lk.wasityInstitute.asset.payment.entity.Payment;
 import lk.wasityInstitute.util.interfaces.AbstractService;
 import org.springframework.stereotype.Service;
@@ -26,11 +28,15 @@ public class PaymentService implements AbstractService< Payment, Integer> {
     }
 
     public Payment persist(Payment payment) {
+        if(payment.getId()==null){
+            payment.setLiveDead(LiveDead.ACTIVE);}
         return paymentDao.save(payment);
     }
 
     public boolean delete(Integer id) {
-        paymentDao.deleteById(id);
+        Payment payment =  paymentDao.getOne(id);
+        payment.setLiveDead(LiveDead.STOP);
+        paymentDao.save(payment);
         return false;
     }
 

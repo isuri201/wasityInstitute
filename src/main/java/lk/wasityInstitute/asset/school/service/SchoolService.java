@@ -1,7 +1,9 @@
 package lk.wasityInstitute.asset.school.service;
 
 
+import lk.wasityInstitute.asset.commonAsset.model.Enum.LiveDead;
 import lk.wasityInstitute.asset.school.dao.SchoolDao;
+import lk.wasityInstitute.asset.school.entity.School;
 import lk.wasityInstitute.asset.school.entity.School;
 import lk.wasityInstitute.util.interfaces.AbstractService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,12 +35,15 @@ public class SchoolService implements AbstractService< School, Integer> {
 
 
     public School persist(School school) {
+        if(school.getId()==null){
+            school.setLiveDead(LiveDead.ACTIVE);}
         return schoolDao.save(school);
     }
 
-
     public boolean delete(Integer id) {
-        schoolDao.deleteById(id);
+        School school =  schoolDao.getOne(id);
+        school.setLiveDead(LiveDead.STOP);
+        schoolDao.save(school);
         return false;
     }
 

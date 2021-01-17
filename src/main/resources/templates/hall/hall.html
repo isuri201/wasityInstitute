@@ -26,7 +26,6 @@
             <th>Number</th>
             <th>Condition</th>
             <th>Seating Count</th>
-            <th>Location</th>
             <th>Modify</th>
         </tr>
         </thead>
@@ -36,7 +35,6 @@
             <td data-th-text="${hall.number}"></td>
             <td data-th-text="${hall.hallCondition}"></td>
             <td data-th-text="${hall.seatCount}"></td>
-            <td data-th-text="${hall.hallLocation}"></td>
             <td>
                 <a data-th-href="${'/hall/view/'+ hall.id}"><button class="btn btn-info" style="width: 20%;border-radius: 12px;">View</button></a>
                 <a data-th-href="${'/hall/edit/'+ hall.id}"><button class="btn btn-success ml-4" style="width: 20%;border-radius: 12px;"><i class="fa fa-edit"></i>&nbsp;Edit</button></a>

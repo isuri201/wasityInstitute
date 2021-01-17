@@ -1,9 +1,9 @@
 package lk.wasityInstitute.asset.employee.entity;
 
 import com.fasterxml.jackson.annotation.JsonFilter;
-
 import lk.wasityInstitute.asset.commonAsset.model.Enum.CivilStatus;
 import lk.wasityInstitute.asset.commonAsset.model.Enum.Gender;
+import lk.wasityInstitute.asset.commonAsset.model.Enum.LiveDead;
 import lk.wasityInstitute.asset.commonAsset.model.Enum.Title;
 import lk.wasityInstitute.asset.commonAsset.model.FileInfo;
 import lk.wasityInstitute.asset.employee.entity.enums.Designation;
@@ -71,15 +71,18 @@ public class Employee extends AuditEntity {
     @Enumerated( EnumType.STRING )
     private EmployeeStatus employeeStatus;
 
+    @Enumerated(EnumType.STRING)
+    private LiveDead liveDead;
+
     @DateTimeFormat( pattern = "yyyy-MM-dd" )
     private LocalDate dateOfBirth;
 
     @DateTimeFormat( pattern = "yyyy-MM-dd" )
     private LocalDate dateOfAssignment;
 
+
     @Transient
     private MultipartFile file;
-
 
     @Transient
     private FileInfo fileInfo;
