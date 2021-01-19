@@ -20,7 +20,7 @@ public class UiController {
     this.dateTimeAgeService = dateTimeAgeService;
   }
 
-  @GetMapping( value = "/index" )
+  @GetMapping( value = {"/","/index"} )
   public String index() {
     return "index";
   }
@@ -53,18 +53,18 @@ public class UiController {
     return "login/login";
   }
 
-  @GetMapping( value = {"/login/error10"} )
-  public String getLogin10(Model model) {
-    model.addAttribute("err", "You already entered wrong credential more than 10 times. \n Please meet the system" +
-        " admin");
-    return "login/login";
-  }
-
-  @GetMapping( value = {"/login/noUser"} )
-  public String getLoginNoUser(Model model) {
-    model.addAttribute("err", "There is no user according to the user name. \n Please try again !!");
-    return "login/login";
-  }
+//  @GetMapping( value = {"/login/error10"} )
+//  public String getLogin10(Model model) {
+//    model.addAttribute("err", "You already entered wrong credential more than 10 times. \n Please meet the system" +
+//        " admin");
+//    return "login/login";
+//  }
+//
+//  @GetMapping( value = {"/login/noUser"} )
+//  public String getLoginNoUser(Model model) {
+//    model.addAttribute("err", "There is no user according to the user name. \n Please try again !!");
+//    return "login/login";
+//  }
 
   @GetMapping( value = {"/unicodeTamil"} )
   public String getUnicodeTamil() {
