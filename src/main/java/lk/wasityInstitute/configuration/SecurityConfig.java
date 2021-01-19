@@ -23,7 +23,7 @@ import org.springframework.security.web.session.HttpSessionEventPublisher;
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
   private final String[] ALL_PERMIT_URL = {"/favicon.ico", "/img/**", "/css/**", "/js/**", "/webjars/**",
-      "/login", "/select/**", "/", "/index"};
+      "/login", "/select/**", "/", "/index","/info"};
 
   @Bean
   public UserDetailsServiceImpl userDetailsService() {
