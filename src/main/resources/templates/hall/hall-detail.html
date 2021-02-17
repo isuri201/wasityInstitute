@@ -1,74 +1,84 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <!--Styles, meta data, and title are included-->
 <head data-th-replace="~{fragments/header :: headerFragment}">
     <meta charset="UTF-8">
-    <title>Thymeleaf Springboot </title>
+    <title>Success Student Management System</title>
 </head>
 <body>
 <!--Nav bar is included-->
 <nav data-th-replace="~{fragments/navBar :: navBarFragment}"></nav>
 
-<div class="card"   id="hd">
-    <div class="card  text-white text-center" id="fh1"> HALL DETAILS</div>
-</div>
-<!--Hall detail-->
-<div class="container-fluid" data-th-fragment="hallDetail" id="frm">
-    <div class="row"><div class="col-md-8"></div>
-        <div class="col-sm-2">
-            <a href="/hall/new">
-                <button class="btn btn-info mt-1 ml-5" id="bta">New Hall</button>
-            </a></div>
-        <div class="col-sm-2">
-            <a href="/hall">
-                <button class="btn btn-primary mt-1" id="bta"><i class="fa fa-list"></i>&nbsp; Hall List</button>
-            </a></div></div>
-    <!--hall id-->
-    <div class="form-row mt-3" data-th-if="${addStatus==false}">
-        <div class="col-md-4 text-right " >
-       <label class="control-label" data-th-for="${id}">Id :</label></div>
+<div class="row bg-link">
+    <div class="col-4">
 
-     <div class="col-md-4" >  <p class="form-control" data-th-text="${hallDetail.id}" style="text-align:left;"></p>
-     </div>
     </div>
-    <!--number-->
-    <div class="form-row">
-        <div class="col-md-4 text-right">
-        <label  class="control-label" data-th-for="${number}">Hall number :</label></div>
-    <div class="col-md-4" >  <p class="form-control" data-th-text="${hallDetail.number}" style="text-align:left;"></p>
+    <div class="col-4">
+        <h1>Hall Details</h1>
     </div>
-    </div>
-    <!--Condition-->
-    <div class="form-row text-right">
-        <div class="col-md-4">
-            <label class="control-label" data-th-for="${hallCondition}">Hall Condition :</label>
-        </div>
-        <div class="col-md-4">
-            <p class="form-control" data-th-text="${hallDetail.hallCondition}" style="text-align:left;"></p>
-        </div>
-    </div>
-    <!--Count-->
-    <div class="form-row text-right">
-        <div class="col-md-4">
-            <label class="control-label" data-th-for="${seatCount}">Seating count :</label>
-        </div>
-        <div class="col-md-4">
-            <p class="form-control" data-th-text="${hallDetail.seatCount}" style="text-align:left;"></p>
-        </div>
+    <div class="col-4">
+        <a href="/hall/add">
+            <button class="btn btn-primary" align="center">Add New Hall</button>
+        </a>
     </div>
 </div>
-<!--Button-->
-<div class="form-batch col-md-12 col-sm-12 text-center flex-column ">
-    <a href="/hall">
-        <button class="btn btn-success" tabindex="21" type="submit" id="bts">
-            Back
-        </button>
-    </a>
+<!--Discount detail-->
+<div class=" row container-fluid" data-th-fragment="hallDetail">
+    <div class="col-sm-3"></div>
+    <div class="col-sm-8">
+        <div class="form-group">
+            <label data-th-for="${id}" class="col-sm-3 control-label">Hall ID</label>
+            <div class="col-sm-6">
+                <p type="text" id="id" class="form-control"   data-th-text="${hallDetail.id}">
+            </div>
+        </div>
+        <div class="form-group">
+            <label data-th-for="${number}" class="col-sm-3 control-label">Hall Number</label>
+            <div class="col-sm-6">
+                <p type="text" id="number" class="form-control"   data-th-text="${hallDetail.number}">
+            </div>
+        </div><div class="form-group">
+        <label data-th-for="${number}" class="col-sm-3 control-label">Hall Name</label>
+        <div class="col-sm-6">
+            <p type="text" id="name" class="form-control"   data-th-text="${hallDetail.name}">
+        </div>
+    </div>
+        <div class="form-group">
+            <label data-th-for="${hallCondition}" class="col-sm-3 control-label">Hall Condition</label>
+            <div class="col-sm-6">
+                <p type="text" id="hallCondition" class="form-control"   data-th-text="${hallDetail.hallCondition.hallCondition}">
+            </div>
+        </div>
+        <div class="form-group">
+            <label data-th-for="${seatCount}" class="col-sm-3 control-label">Seating Count</label>
+            <div class="col-sm-6">
+                <p type="text" id="seatCount" class="form-control"   data-th-text="${hallDetail.seatCount}">
+            </div>
+        </div>
+        <div class="form-group">
+            <label data-th-for="${hallLocation}" class="col-sm-3 control-label">hallLocation</label>
+            <div class="col-sm-6">
+                <p type="text" id="hallLocation" class="form-control"   data-th-text="${hallDetail.hallLocation}">
+            </div>
+        </div>
+
+        <div class="row container-fluid">
+            <div class="col-sm-2 col-sm-offset-2">
+                <a href="/hall">
+                    <button type="link"  class="btn btn-danger btn-block" >Back</button>
+                </a>
+            </div>
+
+        </div>
+    </div>
+    <div class="col-sm-1"></div>
 </div>
 
 <!--footer is included-->
-<footer data-th-replace="~{fragments/footer :: footerFragment}"></footer>
+<div data-th-replace="~{fragments/footer :: footerFragment}"></div>
 <!--script is included-->
-<script data-th-replace="~{fragments/script :: scriptFragment}"></script>
+<div data-th-replace="~{fragments/script :: scriptFragment}"></div>
 </body>
 </html>
