@@ -1,7 +1,8 @@
-package lk.wasityInstitute.configuration;
+package lk.wasity_institute.configuration;
 
-
-import lk.wasityInstitute.asset.user_management.service.UserDetailsServiceImpl;
+import lk.wasityInstitute.configuration.CustomAuthenticationSuccessHandler;
+import lk.wasityInstitute.configuration.CustomLogoutSuccessHandler;
+import lk.wasity_institute.asset.user_management.service.UserDetailsServiceImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
@@ -23,7 +24,7 @@ import org.springframework.security.web.session.HttpSessionEventPublisher;
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
   private final String[] ALL_PERMIT_URL = {"/favicon.ico", "/img/**", "/css/**", "/js/**", "/webjars/**",
-      "/login", "/select/**", "/", "/index","/info"};
+          "/login", "/select/**", "/", "/index","/info"};
 
   @Bean
   public UserDetailsServiceImpl userDetailsService() {
@@ -72,68 +73,65 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
   @Override
   protected void configure(HttpSecurity http) throws Exception {
-    http.csrf().disable();
-    http.authorizeRequests().antMatchers("/").permitAll();
+//    http.csrf().disable();
+//    http.authorizeRequests().antMatchers("/").permitAll();
     // For developing easy to give permission all lin
 
-/*
 
     http
-        .authorizeRequests(
-            authorizeRequests ->
-                authorizeRequests
-                    //Anytime users can access without login
-                    //to see actuator details
-                    .antMatchers(ALL_PERMIT_URL).permitAll()
-                    //this is used the normal admin to give access every url mapping
-                    .antMatchers("/employee").hasRole("ADMIN")
-                    //Need to login for access those are
-                    .antMatchers("/employee1/**").hasRole("MANAGER")
-                    .antMatchers("/user/**").hasRole("ADMIN")
-                    .antMatchers("/petition/**").hasRole("ADMIN")
-                    .antMatchers("/minutePetition/**").hasRole("MANAGER")
-                    .antMatchers("/invoiceProcess/add").hasRole("CASHIER")
+            .authorizeRequests(
+                    authorizeRequests ->
+                            authorizeRequests
+                                    //Anytime users can access without login
+                                    //to see actuator details
+                                    .antMatchers(ALL_PERMIT_URL).permitAll()
+                                    //this is used the normal admin to give access every url mapping
+                                    .antMatchers("/employee").hasRole("ADMIN")
+                                    //Need to login for access those are
+                                    .antMatchers("/employee1/**").hasRole("MANAGER")
+                                    .antMatchers("/user/**").hasRole("ADMIN")
+                                    .antMatchers("/petition/**").hasRole("ADMIN")
+                                    .antMatchers("/minutePetition/**").hasRole("MANAGER")
+                                    .antMatchers("/invoiceProcess/add").hasRole("CASHIER")
 
-                    .anyRequest()
-                    .authenticated())
-        // Login form
-        .formLogin(
-            formLogin ->
-                formLogin
-                    .loginPage("/login")
-                    .loginProcessingUrl("/login")
-                    //Username and password for validation
-                    .usernameParameter("username")
-                    .passwordParameter("password")
-                    .successHandler(customAuthenticationSuccessHandler())
-                    .failureUrl("/login?error")
-                  )
-        //Logout controlling
-        .logout(
-            logout ->
-                logout
-                    .logoutUrl("/logout")
-                    .logoutSuccessHandler(customLogoutSuccessHandler())
-                    .deleteCookies("JSESSIONID")
-                    .invalidateHttpSession(true)
-                    .clearAuthentication(true))
-        //session management
-        .sessionManagement(
-            sessionManagement ->
-                sessionManagement
-                    .sessionFixation().migrateSession()
-                    .sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED)
-                    .invalidSessionUrl("/login")
-                    .maximumSessions(1)
-                    .expiredUrl("/logout")
-                    .sessionRegistry(sessionRegistry()))
-        //Cross site disable
-        .rememberMe().key("uniqueAndSecret").tokenValiditySeconds(86400)
-        .and()
-        .csrf(AbstractHttpConfigurer::disable)
-        .exceptionHandling();
-*/
+                                    .anyRequest()
+                                    .authenticated())
+            // Login form
+            .formLogin(
+                    formLogin ->
+                            formLogin
+                                    .loginPage("/login")
+                                    .loginProcessingUrl("/login")
+                                    //Username and password for validation
+                                    .usernameParameter("username")
+                                    .passwordParameter("password")
+                                    .successHandler(customAuthenticationSuccessHandler())
+                                    .failureUrl("/login?error")
+            )
+            //Logout controlling
+            .logout(
+                    logout ->
+                            logout
+                                    .logoutUrl("/logout")
+                                    .logoutSuccessHandler(customLogoutSuccessHandler())
+                                    .deleteCookies("JSESSIONID")
+                                    .invalidateHttpSession(true)
+                                    .clearAuthentication(true))
+            //session management
+            .sessionManagement(
+                    sessionManagement ->
+                            sessionManagement
+                                    .sessionFixation().migrateSession()
+                                    .sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED)
+                                    .invalidSessionUrl("/login")
+                                    .maximumSessions(1)
+                                    .expiredUrl("/logout")
+                                    .sessionRegistry(sessionRegistry()))
+            //Cross site disable
+            .rememberMe().key("uniqueAndSecret").tokenValiditySeconds(86400)
+            .and()
+            .csrf(AbstractHttpConfigurer::disable)
+            .exceptionHandling();
 
   }
 }
-
