@@ -1,69 +1,142 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--&lt;!&ndash;Styles, meta data, and title are included&ndash;&gt;-->
+<!--<head data-th-replace="~{fragments/header :: headerFragment}">-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Success Student Management System</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--&lt;!&ndash;Nav bar is included&ndash;&gt;-->
+<!--<nav data-th-replace="~{fragments/navBar :: navBarFragment}"></nav>-->
+
+<!--<nav class="navbar navbar-expand-sm bg-primary">-->
+<!--    <div class="col-4"></div>-->
+<!--    <div class="col-4">-->
+<!--        <h1><span class="navbar-text">Subject Details</span></h1>-->
+<!--    </div>-->
+<!--    <div class="col-4">-->
+<!--        <a href="/subject">-->
+<!--            <button class="btn btn-primary">All Subject</button>-->
+<!--        </a>-->
+<!--    </div>-->
+<!--</nav>-->
+<!--&lt;!&ndash;Subject detail&ndash;&gt;-->
+<!--<div class="container" data-th-fragment="subjectDetail">-->
+<!--    &lt;!&ndash;subject id&ndash;&gt;-->
+<!--    <div class="form-row text-right">-->
+<!--        <div class="col-3">-->
+<!--            <label class="control-label" data-th-for="${id}">ID</label>-->
+<!--        </div>-->
+<!--        <div class="col-1"></div>-->
+<!--        <div class="col-4">-->
+<!--            <p class="form-control" data-th-text="${subjectDetail.id}"></p>-->
+<!--        </div>-->
+<!--        <div class="col-4"></div>-->
+<!--    </div>-->
+
+<!--    &lt;!&ndash;code&ndash;&gt;-->
+<!--    <div class="form-row text-right">-->
+<!--        <div class="col-3">-->
+<!--            <label class="control-label" data-th-for="${code}">Code</label>-->
+<!--        </div>-->
+<!--        <div class="col-1"></div>-->
+<!--        <div class="col-4">-->
+<!--            <p class="form-control" data-th-text="${subjectDetail.code}"></p>-->
+<!--        </div>-->
+<!--        <div class="col-4"></div>-->
+<!--    </div>-->
+
+<!--    &lt;!&ndash;Name&ndash;&gt;-->
+<!--    <div class="form-row text-right">-->
+<!--        <div class="col-3">-->
+<!--            <label class="control-label" data-th-for="${name}">Name</label>-->
+<!--        </div>-->
+<!--        <div class="col-1"></div>-->
+<!--        <div class="col-4">-->
+<!--            <p class="form-control" data-th-text="${subjectDetail.name}"></p>-->
+<!--        </div>-->
+<!--        <div class="col-4"></div>-->
+<!--    </div>-->
+
+<!--</div>-->
+<!--&lt;!&ndash;Button&ndash;&gt;-->
+<!--<div class="container-fluid">-->
+<!--    <a href="/subject">-->
+<!--        <button class="btn btn-success"  type="submit" align="center">Back</button>-->
+<!--    </a>-->
+<!--</div>-->
+
+<!--&lt;!&ndash;footer is included&ndash;&gt;-->
+<!--<div data-th-replace="~{fragments/footer :: footerFragment}"></div>-->
+<!--&lt;!&ndash;script is included&ndash;&gt;-->
+<!--<div data-th-replace="~{fragments/script :: scriptFragment}"></div>-->
+<!--</body>-->
+<!--</html>-->
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <!--Styles, meta data, and title are included-->
 <head data-th-replace="~{fragments/header :: headerFragment}">
     <meta charset="UTF-8">
-    <title>Thymeleaf Springboot </title>
+    <title>Success Student Management System</title>
 </head>
-<body style="padding-top: 70px;">
+<body>
 <!--Nav bar is included-->
 <nav data-th-replace="~{fragments/navBar :: navBarFragment}"></nav>
 
-<div class="card"   id="hd">
-    <div class="card  text-white text-center" id="fh1"> SUBJECT DETAILS</div>
+<div class="row bg-link">
+    <div class="col-4">
+
+    </div>
+    <div class="col-4">
+        <h1>Subject Details</h1>
+    </div>
+    <div class="col-4">
+        <a href="/subject/add">
+            <button class="btn btn-primary" align="center">Add new Subject</button>
+        </a>
+    </div>
 </div>
-<!--Subject detail-->
-<div class="container-fluid" data-th-fragment="subjectDetail" id="frm" >
-    <div class="row" ><div class="col-md-8"></div>
-
-   <div class="col-sm-2">
-
-<a href="/subject/new">
-    <button class="btn btn-info mt-1 ml-5" id="bta">New Subject</button>
-</a></div>
-        <div class="col-sm-2">
-    <a href="/subject">
-        <button class="btn btn-primary mt-1" id="bta"> <i class="fa fa-list"></i>&nbsp; Subject List</button>
-    </a></div></div>
-
-    <!--subject id-->
-    <form class="mt-5">
-    <div class="form-batch row" data-th-if="${addStatus==false}">
-        <div class="col-md-4 text-right">
-            <label data-th-for="${id}" ><b>Id:</b></label></div>
-        <div class="col-md-4"><p class="form-control" data-th-text="${subjectDetail.id}" ></p></div>
-
-
-    </div>
-    <!--code-->
-    <div class="form-batch row">
-        <div class="col-md-4 text-right"><label data-th-for="${code}"><b>Code:</b></label></div>
-        <div class="col-md-4"><p class="form-control" data-th-text="${subjectDetail.code}"></p></div>
-    </div>
-    <!--Name-->
-    <div class="form-batch row">
-        <div class="col-md-4  text-right">
-            <label class="control-label" data-th-for="${name}" ><b>Name :</b></label>
+<!--Discount detail-->
+<div class=" row container-fluid" data-th-fragment="subjectDetail">
+    <div class="col-sm-3"></div>
+    <div class="col-sm-8">
+        <div class="form-group">
+            <label data-th-for="${id}" class="col-sm-3 control-label">Index</label>
+            <div class="col-sm-6">
+                <p type="text" id="id" class="form-control"   data-th-text="${subjectDetail.id}">
+            </div>
         </div>
-        <div class="col-md-4">
-            <p class="form-control" data-th-text="${subjectDetail.name}" ></p></div>
+        <div class="form-group">
+            <label data-th-for="${name}" class="col-sm-3 control-label">Subject name</label>
+            <div class="col-sm-6">
+                <p type="text" id="name" class="form-control"   data-th-text="${subjectDetail.name}">
+            </div>
         </div>
-</form>
+        <div class="form-group">
+            <label data-th-for="${code}" class="col-sm-3 control-label">Subject code</label>
+            <div class="col-sm-6">
+                <p type="text" id="code" class="form-control"   data-th-text="${subjectDetail.code}">
+            </div>
+        </div>
+        <div class="row container-fluid">
+            <div class="col-sm-2 col-sm-offset-2">
+                <a href="/subject">
+                    <button type="link"  class="btn btn-danger btn-block" >Back</button>
+                </a>
+            </div>
+
+        </div>
     </div>
-
-
-<!--Button-->
-<div class="form-batch col-md-12 col-sm-12 text-center flex-column ">
-    <a href="/subject">
-        <button class="btn btn-success" tabindex="21" type="submit" id="bts">
-            Back
-        </button>
-    </a>
+    <div class="col-sm-1"></div>
 </div>
-
 <!--footer is included-->
-<footer data-th-replace="~{fragments/footer :: footerFragment}"></footer>
+<div data-th-replace="~{fragments/footer :: footerFragment}"></div>
 <!--script is included-->
-<script data-th-replace="~{fragments/script :: scriptFragment}"></script>
+<div data-th-replace="~{fragments/script :: scriptFragment}"></div>
 </body>
 </html>

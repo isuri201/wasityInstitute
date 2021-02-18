@@ -5,76 +5,69 @@
     <meta charset="UTF-8">
     <title>Thymeleaf Springboot </title>
 </head>
-<body style="padding-top: 70px">
+<body>
 <!--Nav bar is included-->
 <nav data-th-replace="~{fragments/navBar :: navBarFragment}"></nav>
 
-<div class="card"   id="hd">
-    <div class="card  text-white text-center" id="fh1"> BATCH DETAILS</div>
+<div class="row bg-link">
+    <div class="col-4">
+
+    </div>
+    <div class="col-4">
+        <h1>Batch Details</h1>
+    </div>
+    <div class="col-4">
+        <a href="/batch/add">
+            <button class="btn btn-primary" align="center">Batch Detail</button>
+        </a>
+    </div>
 </div>
 
-<!--Batch detail-->
-<div class="container-fluid" data-th-fragment="batchDetail" id="frm">
-    <div class="row"><div class="col-md-8"></div>
-        <div class="col-sm-2">
-            <a href="/batch/new">
-                <button class="btn btn-info mt-1 ml-5" id="bta">New batch</button>
-            </a></div>
-        <div class="col-sm-2">
-            <a href="/batch">
-                <button class="btn btn-primary mt-1" id="bta"> <i class="fa fa-list"></i>&nbsp; Batch List</button>
-            </a></div></div>
-    <!--Class Referance-->
-    <div class="form-row text-right mt-4">
-        <div class="col-md-4">
-            <label class="control-label mt-1" data-th-for="${classReferance}"><b>Class Referance :</b></label>
+<div class="row container-fluid">
+    <div class="col-sm-3"></div>
+    <div class="col-sm-8" data-th-fragment="batchDetailsFragment">
+        <div class="form-group">
+            <label data-th-for="${code}" class="col-sm-3 control-label">Class reference</label>
+            <div class="col-sm-6">
+                <p type="text" id="code" class="form-control"   data-th-text="${batchDetail.code}">
+            </div>
         </div>
-        <div class="col-md-4">
-            <p class="form-control" data-th-text="${batchDetail.classReferance}" style="text-align:left;"></p>
+        <div class="form-group">
+            <label data-th-for="${year}" class="col-sm-3 control-label">Academic Year</label>
+            <div class="col-sm-6">
+                <p type="text" id="year" class="form-control"   data-th-text="${batchDetail.year}">
+            </div>
         </div>
-    </div>
-    <!--Grade-->
-    <div class="form-row text-right">
-        <div class="col-md-4">
-            <label class="control-label mt-1" data-th-for="${grade}"><b>Grade :</b></label>
+        <div class="form-group">
+            <label data-th-for="${grade}" class="col-sm-3 control-label">Grade</label>
+            <div class="col-sm-6">
+                <p type="text" id="grade" class="form-control"   data-th-text="${batchDetail.grade}">
+            </div>
         </div>
-        <div class="col-md-4">
-            <p class="form-control" data-th-text="${batchDetail.grade}" style="text-align:left;"></p>
+        <div class="form-group">
+            <label data-th-for="${teacherName}" class="col-sm-3 control-label">Teacher</label>
+            <div class="col-sm-6">
+                <p type="text" id="teacherName" class="form-control"   data-th-text="${batchDetail.teacher.firstName}">
+            </div>
         </div>
-    </div>
-    <!--Year-->
-    <div class="form-row text-right">
-        <div class="col-md-4">
-            <label class="control-label mt-1" data-th-for="${year}"><b>year :</b></label>
+        <div class="form-group">
+            <label data-th-for="${'name'}" class="col-sm-3 control-label"> Name</label>
+            <div class="col-sm-6">
+                <p type="text" id="name" class="form-control"   data-th-text="${batchDetail.name}">
+            </div>
         </div>
-        <div class="col-md-4">
-            <p class="form-control" data-th-text="${batchDetail.year}"  style="text-align:left;"></p>
-        </div>
-    </div>
-    <!--Teacher-->
-    <div class="form-row text-right">
-        <div class="col-md-4">
-            <label class="control-label" mt-1 data-th-for="${teacherName}"><b>Teacher Name :</b></label>
-        </div>
-        <div class="col-md-4">
-            <p class="form-control" data-th-text="${batchDetail.teacherName}"  style="text-align:left;"></p>
-        </div>
-    </div>
 
+        <div class="row container-fluid">
+            <div class="col-sm-2 col-sm-offset-2">
+                <a href="/batch">
+                <button type="link"  class="btn btn-danger btn-block" >Back</button>
+                </a>
+            </div>
 
-</div>
-<!--Button-->
-<div class="form-batch col-md-12 col-sm-12 text-center flex-column ">
-    <a href="/batch">
-        <button class="btn btn-success" tabindex="21" type="submit" id="bts">
-            Back
-        </button>
-    </a>
+        </div>
+    </div>
+    <div class="col-sm-1"></div>
 </div>
 
-<!--footer is included-->
-<footer data-th-replace="~{fragments/footer :: footerFragment}"></footer>
-<!--script is included-->
-<script data-th-replace="~{fragments/script :: scriptFragment}"></script>
 </body>
 </html>
