@@ -1,113 +1,185 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" >
 <!--Styles, meta data, and title are included-->
-<head data-th-replace="~{fragments/header :: headerFragment}">
-    <meta charset="UTF-8">
-    <title>Thymeleaf Springboot </title>
-</head>
-<body style="padding-top: 80px">
+<head data-th-replace="~{fragments/header :: headerFragment}" >
+  <meta charset="UTF-8" >
+  <title >Thymeleaf Springboot </title >
+</head >
+<body >
 <!--Nav bar is included-->
-<nav data-th-replace="~{fragments/navBar :: navBarFragment}"></nav>
+<nav data-th-replace="~{fragments/navBar :: navBarFragment}" ></nav >
 
-<div class="card"   id="hd">
-    <div class="card  text-white text-center" id="fh1">NEW BATCH</div>
-</div>
+<div class="row bg-light" >
+  <div class="col-4" >
+  </div >
+  <div class="col-4" >
+    <h1 >Create a Batch</h1 >
+  </div >
+  <div class="col-4" >
+    <a href="/batch" >
+      <button class="btn btn-primary" >All Batch</button >
+    </a >
+  </div >
+</div >
 
-<div class="container-fluid " id="frm">
-    <div class="row"><div class="col-md-10"></div>
-        <div class="col-sm-2 mt-1" ><a href="/batch">
-            <button class="btn btn-primary" id="bta"> <i class="fa fa-list"></i>&nbsp; Batch List</button>
-        </a>
-        </div>
-    </div>
-    <form action="/batch/save" data-th-object="${batch}" method="post">
-        <!--batch id-->
-        <div class="form-row text-right mt-4" data-th-if="${addStatus==false}">
-            <div class="col-md-4 col-sm-6">
-                <label data-th-for="${id}" class="control-label"><b>Id :</b></label>
-            </div>
+<!------ Include the above in your HEAD tag ---------->
 
-                <label class="col-md-4  col-sm-6 ">
-                    <input class="form-control" data-th-field="*{id}" readonly type="text">
-                </label>
+<div class="container" >
+  <form action="/batch/save" data-th-object="${batch}" method="post" >
+    <div class="form-group text-right" data-th-if="${addStatus==false}" >
+      <div class="col-md-4" >
+        <label data-th-for="${id}" >Id</label >
+      </div >
+      <div class="col-md-8" >
+        <label >
+          <input class="form-control" data-th-field="*{id}" readonly type="text" >
+          <input class="form-control" data-th-field="*{liveDead}" readonly type="hidden" >
+        </label >
+      </div >
+    </div >
+    <div class="form-group" data-th-if="${addStatus==false}" >
+      <label class="col-sm-3 control-label" data-th-for="${'code'}" >Batch Reff</label >
+      <div class="col-sm-9" >
+        <input type="text" data-th-field="*{code}" id="batchId" placeholder="Batch ID" class="form-control"
+               autofocus readonly >
+      </div >
+    </div >
+    <div class="form-group" >
+      <label class="col-sm-2 control-label" data-th-for="${'year'}" >Academic Year</label >
+      <div class="col-sm-3" >
+        <select id="year" class="form-control" data-th-field="*{year}" required >
+          <option value="2021" >2021</option >
+          <option value="2022" >2022</option >
+          <option value="2023" >2023</option >
+          <option value="2024" >2024</option >
+          <option value="2025" >2025</option >
+          <option value="2026" >2026</option >
+          <option value="2027" >2027</option >
+          <option value="2028" >2028</option >
+        </select >
+      </div >
+    </div >
+    <div class="form-group" >
+      <label class="col-sm-1 control-label" data-th-for="${'grade'}" >Grade</label >
+      <div class="col-sm-5" >
+        <select id="grade" class="form-control" data-th-field="*{grade}" required >
+          <option value="" >Select the Grade</option >
+          <option data-th-each="grade : ${grades}"
+                  data-th-text="${grade.grade}"
+                  data-th-value="${grade}" ></option >
+        </select >
+      </div >
+    </div >
+    <div class="form-group" >
+      <label data-th-for="${'teacher'}" class="col-sm-3 control-label" >Teacher Name</label >
+      <div class="col-sm-9" >
+        <select id="teacher" class="form-control" data-th-field="*{teacher}" required >
+          <option value="" >Select the Teacher</option >
+          <option data-th-each="teacher : ${teachers}"
+                  data-th-text="${teacher.firstName+'_'+teacher.fee}"
+                  data-th-value="${teacher.id}" ></option >
+        </select >
+      </div >
+    </div >
+    <div class="form-group" >
+      <label data-th-for="${'classDay'}" class="col-sm-3 control-label" >Class Day</label >
+      <div class="col-sm-9" >
+        <select id="classDay" class="form-control" data-th-field="*{classDay}" required >
+          <option value="" >Select Day</option >
+          <option data-th-each="classDay : ${classDays}"
+                  data-th-text="${classDay.classDay}"
+                  data-th-value="${classDay}" ></option >
+        </select >
+      </div >
+    </div >
+    <div class="form-group" >
+      <label data-th-for="${name}" class="col-sm-3 control-label" >Time Period</label >
+      <div class="col-sm-9" >
+        <div class="form-group" >
+          <label for="startAt" >FROM (opening hours 08:00 to 20:00) :</label >
+          <input class="form-control" id="startAt" data-th-field="*{startAt}" type="time" step="3600" min="08:00"
+                 max="20:00" />
+        </div >
+        <div class="form-group" >
+          <label for="endAt" >TO (opening hours 08:00 to 20:00) :</label >
+          <input class="form-control" id="endAt" data-th-field="*{endAt}" type="time" step="3600" min="08:00"
+                 max="20:00" />
+        </div >
+      </div >
+    </div >
+    <div class="form-group" >
+      <label data-th-for="${name}" class="col-sm-3 control-label" >Batch Name</label >
+      <div class="col-sm-9" >
+        <input type="text" data-th-field="*{name}" id="name" placeholder="Batch Name" class="form-control"
+               autofocus readonly >
+      </div >
+    </div >
+    <div class="form-group" >
+      <label  data-th-if="${#fields.hasErrors('*')}" data-th-text="'Errors: '" >Errors: </label >
+      <ul >
+        <li  data-th-each="err : ${#fields.errors('*')}" data-th-text="${err}" class="text-danger" ></li >
+      </ul >
+    </div >
+    <div class="row container-fluid" >
+      <div class="col-sm-2 col-sm-offset-2" >
+        <button type="button" class="btn btn-danger btn-block" >Back</button >
+      </div >
+
+      <div class="col-sm-2 col-sm-offset-2" >
+        <button type="reset" class="btn btn-warning btn-block" >Clear Data</button >
+      </div >
+
+      <div class="col-sm-2 col-sm-offset-2" >
+        <button type="submit" class="btn btn-success btn-block" >Submit</button >
+      </div >
+    </div >
+  </form > <!-- /form -->
+</div >
+<input type="hidden" id="subjectUrl" data-th-value="${subjectUrl}" >
+<!--footer include-->
+<div data-th-replace="~{fragments/footer :: footerFragment}" ></div >
+<!--script include-->
+<div data-th-replace="~{fragments/script :: scriptFragment}" ></div >
+<script >
+    $("#teacher, #grade, #year,#startAt, #endAt").change(function () {
+        let id = $("#teacher").val();
+        let startDateTime = $(`#startAt`).val();
+        let endDateTime = $("#endAt").val();
+        let day = $("#classDay").val();
+        if (id && startDateTime && endDateTime) {
+            $.ajax({
+                type: 'GET',
+                url: $("#subjectUrl").val() + id,
+                success: function (resp) {
+                    if (startDateTime !== "" && endDateTime !== "") {
+                        let sDT = Date.parse('20 Aug 2020 ' + startDateTime);
+                        let eDT = Date.parse('20 Aug 2020 ' + endDateTime);
+                        if (sDT > eDT) {
+                            swal({
+                                title: "Could you accept those time.. !",
+                                icon: "warning",
+                                text: "Please check your time \n End Time can not be less than Start Time",
+                            })
+                            $(`#endAt`).val(startDateTime);
+                        }
+                    }
+                    $("#name").val($("#year").val()
+                        + "-" + $("#grade").val()
+                        + "-" + $("#teacher option:selected").html().toUpperCase()
+                        + "-" + resp.name.toUpperCase()
+                        + "-" + day
+                        + "-" + startDateTime
+                        + "-" + endDateTime);
+
+                },
+                error: function (err) {
+                    console.log(err);
+                }
+            });
+        }
+    });
 
 
-        </div>
-        <!-- Class Reference-->
-        <div class="form-row text-right   ">
-            <div class="col-md-4 col-sm-6">
-                <label class="control-label mt-1" data-th-for="${classReferance}"><b>Class Referance :</b></label>
-            </div>
-
-                <label class="col-md-4  col-sm-6 ">
-                    <input class="form-control" data-th-field="*{classReferance}" required tabindex="4" type="text"/>
-
-                <span data-th-errors="*{classReferance}"
-                      data-th-if="${#fields.hasErrors('classReferance')}">Error Name</span>
-                </label>
-        </div>
-        <!--Grade-->
-        <div class="form-row text-right ">
-            <div class="col-md-4 col-sm-6">
-                <label class="control-label mt-1" data-th-for="${grade}"><b>Grade :</b></label>
-            </div>
-            <label class="col-md-4 col-sm-6 ">
-                <input class="form-control " data-th-field="*{grade}" required tabindex="4" type="text"/>
-            </label>
-                <span data-th-errors="*{grade}"
-                      data-th-if="${#fields.hasErrors('grade')}">Error Name</span>
-
-        </div>
-        <!--Year-->
-        <div class="form-row text-right">
-            <div class="col-md-4 col-sm-6">
-                <label class="control-label mt-1" data-th-for="${year}"><b>Year :</b></label>
-            </div>
-            <label class="col-md-4 col-sm-6 ">
-                <input class="form-control" data-th-field="*{year}" required tabindex="4" type="text"/>
-                <span data-th-errors="*{year}"
-                      data-th-if="${#fields.hasErrors('year')}">Error Name</span>
-            </label>
-        </div>
-        <!--Subject Name-->
-        <div class="form-row text-right">
-            <div class="col-md-4 col-sm-6">
-                <label class="control-label mt-1"  data-th-for="${subjectName}"><b>Subject Name :</b></label>
-            </div>
-            <label class="col-md-4 col-sm-6">
-                <input class="form-control" data-th-field="*{subjectName}" required tabindex="4" type="text"/>
-                <span data-th-errors="*{subjectName}"
-                      data-th-if="${#fields.hasErrors('subjectName')}">Error Name</span>
-            </label>
-        </div>
-        <!--Teacher Name-->
-        <div class="form-row text-right">
-            <div class="col-md-4 col-sm-6">
-                <label class="control-label mt-1" data-th-for="${teacherName}"><b>Teacher Name :</b></label>
-            </div>
-            <label class="col-md-4 col-sm-6">
-                <input class="form-control" data-th-field="*{teacherName}" required tabindex="4" type="text"/>
-                <span data-th-errors="*{teacherName}"
-                      data-th-if="${#fields.hasErrors('teacherName')}">Error Name</span>
-            </label>
-        </div>
-
-        <!--Button-->
-        <div class="form-batch col-md-12 col-sm-10 text-center flex-column " >
-            <button class="btn btn-success " tabindex="21" type="submit" id="bts">
-                <i class="fa fa-save " style="font-size: 20px"></i>&nbsp; &nbsp;<span
-                    data-th-text="${addStatus==true?'Save': 'Update'}"
-                    id="submit"></span>
-            </button>
-            <button class="btn btn-danger mt-4 ml-lg-5 mb-lg-4 " type="reset" id="btr">
-                <i class="fa fa-redo" style="font-size: 20px"></i>&nbsp;&nbsp;<span>Reset</span></button>
-        </div>
-    </form>
-</div>
-
-<!--footer is included-->
-<footer data-th-replace="~{fragments/footer :: footerFragment}"></footer>
-<!--script is included-->
-<script data-th-replace="~{fragments/script :: scriptFragment}"></script>
-</body>
-</html>
+</script >
+</body >
+</html >
